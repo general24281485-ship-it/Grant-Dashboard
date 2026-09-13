@@ -1,7 +1,11 @@
 {
-  "generated": "2026-09-13 12:10",
-  "fy26_period": "01 Jul 2025 – 30 Jun 2026",
-  "fy27_period": "01 Jul 2026 – 30 Jun 2027",
+  "generated": "2026-09-13 12:46",
+  "fy_periods": {
+    "FY24": "01 Jul 2023 – 30 Jun 2024",
+    "FY25": "01 Jul 2024 – 30 Jun 2025",
+    "FY26": "01 Jul 2025 – 30 Jun 2026",
+    "FY27": "01 Jul 2026 – 30 Jun 2027"
+  },
   "grants": [
     {
       "code": "30-029",
@@ -18,11 +22,30 @@
       "orig_currency": "Not verified",
       "budget_total": 400000.0,
       "purpose": "",
-      "rep_schedule": "",
-      "payment_schedule": "",
       "agreement_status": "Needs agreement review",
-      "fy26_income": 0,
-      "fy27_income": 0,
+      "source_status": "Needs agreement/briefing review",
+      "next_key_date": "",
+      "next_report_due": "",
+      "next_install_due": "",
+      "next_install_amt": 0.0,
+      "rep_schedule_text": "Not verified",
+      "payment_schedule_text": "Not verified",
+      "payment_installments": [],
+      "total_outstanding": 0,
+      "reporting_schedule": [],
+      "needs_review": [
+        {
+          "item": "CIFF",
+          "issue": "Reporting and installment schedule not verified",
+          "action": "Open signed agreement and latest briefing sheet; populate dates and payment conditions"
+        }
+      ],
+      "fy_income": {
+        "FY24": 0,
+        "FY25": 400000.0,
+        "FY26": 0,
+        "FY27": 0
+      },
       "total_income": 400000.0,
       "income_lines": [
         {
@@ -40,8 +63,12 @@
           "amount": 180000.0
         }
       ],
-      "fy26_expenses": 254565.11,
-      "fy27_expenses": 6051.07,
+      "fy_expenses": {
+        "FY24": 0,
+        "FY25": 21601.79,
+        "FY26": 254565.11,
+        "FY27": 6051.07
+      },
       "total_expenses": 282217.97,
       "balance": 117782.03,
       "pct_used": 70.6,
@@ -49,8 +76,12 @@
         {
           "category": "Grants",
           "budget": 0.0,
-          "fy26_actual": 0,
-          "fy27_actual": 0,
+          "fy_actuals": {
+            "FY24": 0,
+            "FY25": 0,
+            "FY26": 0,
+            "FY27": 0
+          },
           "total_actual": 0,
           "variance": 0.0,
           "pct_used": 0
@@ -58,8 +89,12 @@
         {
           "category": "Capacity Strengthening",
           "budget": 138000.0,
-          "fy26_actual": 101219.39,
-          "fy27_actual": 6119.2,
+          "fy_actuals": {
+            "FY24": 0,
+            "FY25": 3517.53,
+            "FY26": 101219.39,
+            "FY27": 6119.2
+          },
           "total_actual": 110856.12,
           "variance": 27143.88,
           "pct_used": 80.3
@@ -67,8 +102,12 @@
         {
           "category": "Communications",
           "budget": 18000.0,
-          "fy26_actual": 0,
-          "fy27_actual": 0,
+          "fy_actuals": {
+            "FY24": 0,
+            "FY25": 0,
+            "FY26": 0,
+            "FY27": 0
+          },
           "total_actual": 0,
           "variance": 18000.0,
           "pct_used": 0.0
@@ -76,8 +115,12 @@
         {
           "category": "Staffing",
           "budget": 85000.0,
-          "fy26_actual": 83526.48,
-          "fy27_actual": 0,
+          "fy_actuals": {
+            "FY24": 0,
+            "FY25": 13333.0,
+            "FY26": 83526.48,
+            "FY27": 0
+          },
           "total_actual": 96859.48,
           "variance": -11859.48,
           "pct_used": 114.0
@@ -85,8 +128,12 @@
         {
           "category": "Travel",
           "budget": 52000.0,
-          "fy26_actual": 21827.32,
-          "fy27_actual": 0,
+          "fy_actuals": {
+            "FY24": 0,
+            "FY25": 1407.81,
+            "FY26": 21827.32,
+            "FY27": 0
+          },
           "total_actual": 23235.13,
           "variance": 28764.87,
           "pct_used": 44.7
@@ -94,8 +141,12 @@
         {
           "category": "Overhead / Other",
           "budget": 107000.0,
-          "fy26_actual": 47991.92,
-          "fy27_actual": -68.13,
+          "fy_actuals": {
+            "FY24": 0,
+            "FY25": 3343.45,
+            "FY26": 47991.92,
+            "FY27": -68.13
+          },
           "total_actual": 51267.24,
           "variance": 55732.76,
           "pct_used": 47.9
@@ -113,7 +164,7 @@
           "debit": 1839.89,
           "credit": 0.0,
           "net": 1839.89,
-          "fy": "Other"
+          "fy": "FY25"
         },
         {
           "date": "2025-03-31",
@@ -126,7 +177,7 @@
           "debit": 1314.83,
           "credit": 0.0,
           "net": 1314.83,
-          "fy": "Other"
+          "fy": "FY25"
         },
         {
           "date": "2025-03-31",
@@ -139,7 +190,7 @@
           "debit": 3517.53,
           "credit": 0.0,
           "net": 3517.53,
-          "fy": "Other"
+          "fy": "FY25"
         },
         {
           "date": "2025-04-30",
@@ -152,7 +203,7 @@
           "debit": 188.73,
           "credit": 0.0,
           "net": 188.73,
-          "fy": "Other"
+          "fy": "FY25"
         },
         {
           "date": "2025-05-31",
@@ -165,7 +216,7 @@
           "debit": 1101.19,
           "credit": 0.0,
           "net": 1101.19,
-          "fy": "Other"
+          "fy": "FY25"
         },
         {
           "date": "2025-05-31",
@@ -178,7 +229,7 @@
           "debit": 95.8,
           "credit": 0.0,
           "net": 95.8,
-          "fy": "Other"
+          "fy": "FY25"
         },
         {
           "date": "2025-05-31",
@@ -191,7 +242,7 @@
           "debit": 67.84,
           "credit": 0.0,
           "net": 67.84,
-          "fy": "Other"
+          "fy": "FY25"
         },
         {
           "date": "2025-05-31",
@@ -204,7 +255,7 @@
           "debit": 68.94,
           "credit": 0.0,
           "net": 68.94,
-          "fy": "Other"
+          "fy": "FY25"
         },
         {
           "date": "2025-05-31",
@@ -217,7 +268,7 @@
           "debit": 13.35,
           "credit": 0.0,
           "net": 13.35,
-          "fy": "Other"
+          "fy": "FY25"
         },
         {
           "date": "2025-05-31",
@@ -230,7 +281,7 @@
           "debit": 19.95,
           "credit": 0.0,
           "net": 19.95,
-          "fy": "Other"
+          "fy": "FY25"
         },
         {
           "date": "2025-05-31",
@@ -243,7 +294,7 @@
           "debit": 40.74,
           "credit": 0.0,
           "net": 40.74,
-          "fy": "Other"
+          "fy": "FY25"
         },
         {
           "date": "2025-06-30",
@@ -256,7 +307,7 @@
           "debit": 6666.0,
           "credit": 0.0,
           "net": 6666.0,
-          "fy": "Other"
+          "fy": "FY25"
         },
         {
           "date": "2025-06-30",
@@ -269,7 +320,7 @@
           "debit": 6667.0,
           "credit": 0.0,
           "net": 6667.0,
-          "fy": "Other"
+          "fy": "FY25"
         },
         {
           "date": "2025-06-30",
@@ -282,7 +333,7 @@
           "debit": 6666.0,
           "credit": 0.0,
           "net": 6666.0,
-          "fy": "Other"
+          "fy": "FY25"
         },
         {
           "date": "2025-06-30",
@@ -295,7 +346,7 @@
           "debit": 6667.0,
           "credit": 0.0,
           "net": 6667.0,
-          "fy": "Other"
+          "fy": "FY25"
         },
         {
           "date": "2025-06-30",
@@ -308,7 +359,7 @@
           "debit": 0.0,
           "credit": 6666.0,
           "net": -6666.0,
-          "fy": "Other"
+          "fy": "FY25"
         },
         {
           "date": "2025-06-30",
@@ -321,7 +372,7 @@
           "debit": 0.0,
           "credit": 6667.0,
           "net": -6667.0,
-          "fy": "Other"
+          "fy": "FY25"
         },
         {
           "date": "2025-06-30",
@@ -334,7 +385,7 @@
           "debit": 1839.89,
           "credit": 0.0,
           "net": 1839.89,
-          "fy": "Other"
+          "fy": "FY25"
         },
         {
           "date": "2025-06-30",
@@ -347,7 +398,7 @@
           "debit": 0.0,
           "credit": 1839.89,
           "net": -1839.89,
-          "fy": "Other"
+          "fy": "FY25"
         },
         {
           "date": "2025-06-30",
@@ -360,7 +411,7 @@
           "debit": 1314.83,
           "credit": 0.0,
           "net": 1314.83,
-          "fy": "Other"
+          "fy": "FY25"
         },
         {
           "date": "2025-06-30",
@@ -373,7 +424,7 @@
           "debit": 188.73,
           "credit": 0.0,
           "net": 188.73,
-          "fy": "Other"
+          "fy": "FY25"
         },
         {
           "date": "2025-06-30",
@@ -386,7 +437,7 @@
           "debit": 0.0,
           "credit": 1314.83,
           "net": -1314.83,
-          "fy": "Other"
+          "fy": "FY25"
         },
         {
           "date": "2025-06-30",
@@ -399,7 +450,7 @@
           "debit": 0.0,
           "credit": 188.73,
           "net": -188.73,
-          "fy": "Other"
+          "fy": "FY25"
         },
         {
           "date": "2025-06-30",
@@ -412,7 +463,7 @@
           "debit": 3517.53,
           "credit": 0.0,
           "net": 3517.53,
-          "fy": "Other"
+          "fy": "FY25"
         },
         {
           "date": "2025-06-30",
@@ -425,7 +476,7 @@
           "debit": 0.0,
           "credit": 3517.53,
           "net": -3517.53,
-          "fy": "Other"
+          "fy": "FY25"
         },
         {
           "date": "2025-08-20",
@@ -3447,11 +3498,52 @@
       "orig_currency": "Not verified",
       "budget_total": 650000.0,
       "purpose": "",
-      "rep_schedule": "",
-      "payment_schedule": "",
       "agreement_status": "Needs agreement review",
-      "fy26_income": 0.0,
-      "fy27_income": 0,
+      "source_status": "Briefing sheet",
+      "next_key_date": "2027-02-15",
+      "next_report_due": "2027-02-15",
+      "next_install_due": "",
+      "next_install_amt": 0.0,
+      "rep_schedule_text": "Narrative and financial reports: 15-Aug-2025; 15-Feb-2026; 15-Aug-2026; final 15-Feb-2027",
+      "payment_schedule_text": "Instalment 1: $580,000 on 25-Dec-2025; Instalment 2: $70,000 on 01-Mar-2026",
+      "payment_installments": [
+        {
+          "installment_no": "1",
+          "amount": 580000.0,
+          "due_date": "2025-12-25",
+          "condition": "Scheduled receipt",
+          "status": "Assumed received",
+          "outstanding": 0.0,
+          "is_next": false
+        },
+        {
+          "installment_no": "2",
+          "amount": 70000.0,
+          "due_date": "2026-03-01",
+          "condition": "Scheduled receipt",
+          "status": "Assumed received",
+          "outstanding": 0.0,
+          "is_next": false
+        }
+      ],
+      "total_outstanding": 0.0,
+      "reporting_schedule": [
+        {
+          "report_type": "Final narrative + financial",
+          "period": "01-Jan-2025 to 31-Dec-2026",
+          "due_date": "2027-02-15",
+          "requirements": "Narrative and financial report with own indicators",
+          "lead": "Daniel Parnetti",
+          "status": "Upcoming"
+        }
+      ],
+      "needs_review": [],
+      "fy_income": {
+        "FY24": 0,
+        "FY25": 650000.0,
+        "FY26": 0.0,
+        "FY27": 0
+      },
       "total_income": 650000.0,
       "income_lines": [
         {
@@ -3483,8 +3575,12 @@
           "amount": -458000.0
         }
       ],
-      "fy26_expenses": 142152.48,
-      "fy27_expenses": 228.95,
+      "fy_expenses": {
+        "FY24": 0,
+        "FY25": 262489.82,
+        "FY26": 142152.48,
+        "FY27": 228.95
+      },
       "total_expenses": 404871.25,
       "balance": 245128.75,
       "pct_used": 62.3,
@@ -3492,8 +3588,12 @@
         {
           "category": "Grants",
           "budget": 465000.0,
-          "fy26_actual": 35000.0,
-          "fy27_actual": 0,
+          "fy_actuals": {
+            "FY24": 0,
+            "FY25": 230000.0,
+            "FY26": 35000.0,
+            "FY27": 0
+          },
           "total_actual": 265000.0,
           "variance": 200000.0,
           "pct_used": 57.0
@@ -3501,8 +3601,12 @@
         {
           "category": "Capacity Strengthening",
           "budget": 97000.0,
-          "fy26_actual": 38699.6,
-          "fy27_actual": 0,
+          "fy_actuals": {
+            "FY24": 0,
+            "FY25": 26466.68,
+            "FY26": 38699.6,
+            "FY27": 0
+          },
           "total_actual": 65166.28,
           "variance": 31833.72,
           "pct_used": 67.2
@@ -3510,8 +3614,12 @@
         {
           "category": "Communications",
           "budget": 0.0,
-          "fy26_actual": 0,
-          "fy27_actual": 0,
+          "fy_actuals": {
+            "FY24": 0,
+            "FY25": 0,
+            "FY26": 0,
+            "FY27": 0
+          },
           "total_actual": 0,
           "variance": 0.0,
           "pct_used": 0
@@ -3519,8 +3627,12 @@
         {
           "category": "Staffing",
           "budget": 88000.0,
-          "fy26_actual": 66000.0,
-          "fy27_actual": 0.0,
+          "fy_actuals": {
+            "FY24": 0,
+            "FY25": 4000.0,
+            "FY26": 66000.0,
+            "FY27": 0.0
+          },
           "total_actual": 70000.0,
           "variance": 18000.0,
           "pct_used": 79.5
@@ -3528,8 +3640,12 @@
         {
           "category": "Travel",
           "budget": 0.0,
-          "fy26_actual": 2439.41,
-          "fy27_actual": 228.95,
+          "fy_actuals": {
+            "FY24": 0,
+            "FY25": 1057.85,
+            "FY26": 2439.41,
+            "FY27": 228.95
+          },
           "total_actual": 3726.21,
           "variance": -3726.21,
           "pct_used": 0
@@ -3537,8 +3653,12 @@
         {
           "category": "Overhead / Other",
           "budget": 0.0,
-          "fy26_actual": 13.47,
-          "fy27_actual": 0,
+          "fy_actuals": {
+            "FY24": 0,
+            "FY25": 965.29,
+            "FY26": 13.47,
+            "FY27": 0
+          },
           "total_actual": 978.76,
           "variance": -978.76,
           "pct_used": 0
@@ -3556,7 +3676,7 @@
           "debit": 4564.0,
           "credit": 0.0,
           "net": 4564.0,
-          "fy": "Other"
+          "fy": "FY25"
         },
         {
           "date": "2025-02-19",
@@ -3569,7 +3689,7 @@
           "debit": 6150.0,
           "credit": 0.0,
           "net": 6150.0,
-          "fy": "Other"
+          "fy": "FY25"
         },
         {
           "date": "2025-02-25",
@@ -3582,7 +3702,7 @@
           "debit": 3230.0,
           "credit": 0.0,
           "net": 3230.0,
-          "fy": "Other"
+          "fy": "FY25"
         },
         {
           "date": "2025-02-26",
@@ -3595,7 +3715,7 @@
           "debit": 9500.0,
           "credit": 0.0,
           "net": 9500.0,
-          "fy": "Other"
+          "fy": "FY25"
         },
         {
           "date": "2025-03-26",
@@ -3608,7 +3728,7 @@
           "debit": 3230.0,
           "credit": 0.0,
           "net": 3230.0,
-          "fy": "Other"
+          "fy": "FY25"
         },
         {
           "date": "2025-04-27",
@@ -3621,7 +3741,7 @@
           "debit": 5.04,
           "credit": 0.0,
           "net": 5.04,
-          "fy": "Other"
+          "fy": "FY25"
         },
         {
           "date": "2025-04-27",
@@ -3634,7 +3754,7 @@
           "debit": 65.64,
           "credit": 0.0,
           "net": 65.64,
-          "fy": "Other"
+          "fy": "FY25"
         },
         {
           "date": "2025-04-28",
@@ -3647,7 +3767,7 @@
           "debit": 3230.0,
           "credit": 0.0,
           "net": 3230.0,
-          "fy": "Other"
+          "fy": "FY25"
         },
         {
           "date": "2025-04-29",
@@ -3660,7 +3780,7 @@
           "debit": 50.5,
           "credit": 0.0,
           "net": 50.5,
-          "fy": "Other"
+          "fy": "FY25"
         },
         {
           "date": "2025-04-29",
@@ -3673,7 +3793,7 @@
           "debit": 10.36,
           "credit": 0.0,
           "net": 10.36,
-          "fy": "Other"
+          "fy": "FY25"
         },
         {
           "date": "2025-04-29",
@@ -3686,7 +3806,7 @@
           "debit": 18.78,
           "credit": 0.0,
           "net": 18.78,
-          "fy": "Other"
+          "fy": "FY25"
         },
         {
           "date": "2025-05-05",
@@ -3699,7 +3819,7 @@
           "debit": 318.61,
           "credit": 0.0,
           "net": 318.61,
-          "fy": "Other"
+          "fy": "FY25"
         },
         {
           "date": "2025-05-05",
@@ -3712,7 +3832,7 @@
           "debit": 24.35,
           "credit": 0.0,
           "net": 24.35,
-          "fy": "Other"
+          "fy": "FY25"
         },
         {
           "date": "2025-05-06",
@@ -3725,7 +3845,7 @@
           "debit": 60.03,
           "credit": 0.0,
           "net": 60.03,
-          "fy": "Other"
+          "fy": "FY25"
         },
         {
           "date": "2025-05-07",
@@ -3738,7 +3858,7 @@
           "debit": 65000.0,
           "credit": 0.0,
           "net": 65000.0,
-          "fy": "Other"
+          "fy": "FY25"
         },
         {
           "date": "2025-05-14",
@@ -3751,7 +3871,7 @@
           "debit": 804.0,
           "credit": 0.0,
           "net": 804.0,
-          "fy": "Other"
+          "fy": "FY25"
         },
         {
           "date": "2025-05-15",
@@ -3764,7 +3884,7 @@
           "debit": 409.82,
           "credit": 0.0,
           "net": 409.82,
-          "fy": "Other"
+          "fy": "FY25"
         },
         {
           "date": "2025-05-15",
@@ -3777,7 +3897,7 @@
           "debit": 8.74,
           "credit": 0.0,
           "net": 8.74,
-          "fy": "Other"
+          "fy": "FY25"
         },
         {
           "date": "2025-05-15",
@@ -3790,7 +3910,7 @@
           "debit": 4.03,
           "credit": 0.0,
           "net": 4.03,
-          "fy": "Other"
+          "fy": "FY25"
         },
         {
           "date": "2025-05-26",
@@ -3803,7 +3923,7 @@
           "debit": 3230.0,
           "credit": 0.0,
           "net": 3230.0,
-          "fy": "Other"
+          "fy": "FY25"
         },
         {
           "date": "2025-06-04",
@@ -3816,7 +3936,7 @@
           "debit": 67500.0,
           "credit": 0.0,
           "net": 67500.0,
-          "fy": "Other"
+          "fy": "FY25"
         },
         {
           "date": "2025-06-04",
@@ -3829,7 +3949,7 @@
           "debit": 97500.0,
           "credit": 0.0,
           "net": 97500.0,
-          "fy": "Other"
+          "fy": "FY25"
         },
         {
           "date": "2025-06-11",
@@ -3842,7 +3962,7 @@
           "debit": 6150.0,
           "credit": 0.0,
           "net": 6150.0,
-          "fy": "Other"
+          "fy": "FY25"
         },
         {
           "date": "2025-06-18",
@@ -3855,7 +3975,7 @@
           "debit": 3230.0,
           "credit": 0.0,
           "net": 3230.0,
-          "fy": "Other"
+          "fy": "FY25"
         },
         {
           "date": "2025-06-19",
@@ -3868,7 +3988,7 @@
           "debit": 9.29,
           "credit": 0.0,
           "net": 9.29,
-          "fy": "Other"
+          "fy": "FY25"
         },
         {
           "date": "2025-06-23",
@@ -3881,7 +4001,7 @@
           "debit": 22.78,
           "credit": 0.0,
           "net": 22.78,
-          "fy": "Other"
+          "fy": "FY25"
         },
         {
           "date": "2025-06-24",
@@ -3894,7 +4014,7 @@
           "debit": 22.28,
           "credit": 0.0,
           "net": 22.28,
-          "fy": "Other"
+          "fy": "FY25"
         },
         {
           "date": "2025-06-24",
@@ -3907,7 +4027,7 @@
           "debit": 10.27,
           "credit": 0.0,
           "net": 10.27,
-          "fy": "Other"
+          "fy": "FY25"
         },
         {
           "date": "2025-06-24",
@@ -3920,7 +4040,7 @@
           "debit": 152.0,
           "credit": 0.0,
           "net": 152.0,
-          "fy": "Other"
+          "fy": "FY25"
         },
         {
           "date": "2025-06-25",
@@ -3933,7 +4053,7 @@
           "debit": 15.31,
           "credit": 0.0,
           "net": 15.31,
-          "fy": "Other"
+          "fy": "FY25"
         },
         {
           "date": "2025-06-25",
@@ -3946,7 +4066,7 @@
           "debit": 11.31,
           "credit": 0.0,
           "net": 11.31,
-          "fy": "Other"
+          "fy": "FY25"
         },
         {
           "date": "2025-06-30",
@@ -3959,7 +4079,7 @@
           "debit": 2500.0,
           "credit": 0.0,
           "net": 2500.0,
-          "fy": "Other"
+          "fy": "FY25"
         },
         {
           "date": "2025-06-30",
@@ -3972,7 +4092,7 @@
           "debit": 1500.0,
           "credit": 0.0,
           "net": 1500.0,
-          "fy": "Other"
+          "fy": "FY25"
         },
         {
           "date": "2025-06-30",
@@ -3985,7 +4105,7 @@
           "debit": 0.0,
           "credit": 16047.32,
           "net": -16047.32,
-          "fy": "Other"
+          "fy": "FY25"
         },
         {
           "date": "2025-07-01",
@@ -5395,11 +5515,33 @@
       "orig_currency": "Not verified",
       "budget_total": 500000.0,
       "purpose": "",
-      "rep_schedule": "",
-      "payment_schedule": "",
       "agreement_status": "Needs agreement review",
-      "fy26_income": 0,
-      "fy27_income": 0,
+      "source_status": "Briefing sheet",
+      "next_key_date": "2026-10-01",
+      "next_report_due": "2026-10-01",
+      "next_install_due": "",
+      "next_install_amt": 0.0,
+      "rep_schedule_text": "Final report due 01-Oct-2026 covering impact, challenges, learning, funding and finances",
+      "payment_schedule_text": "No installment dates or amounts stated",
+      "payment_installments": [],
+      "total_outstanding": 0,
+      "reporting_schedule": [
+        {
+          "report_type": "Final",
+          "period": "Grant term",
+          "due_date": "2026-10-01",
+          "requirements": "Submit impact, challenges, evaluation/learning, funding and finances through donor form",
+          "lead": "Adam Heuman",
+          "status": "Upcoming"
+        }
+      ],
+      "needs_review": [],
+      "fy_income": {
+        "FY24": 0,
+        "FY25": 500000.0,
+        "FY26": 0,
+        "FY27": 0
+      },
       "total_income": 500000.0,
       "income_lines": [
         {
@@ -5424,8 +5566,12 @@
           "amount": 60000.0
         }
       ],
-      "fy26_expenses": 494429.58,
-      "fy27_expenses": 0,
+      "fy_expenses": {
+        "FY24": 0,
+        "FY25": 0,
+        "FY26": 494429.58,
+        "FY27": 0
+      },
       "total_expenses": 494429.58,
       "balance": 5570.42,
       "pct_used": 98.9,
@@ -5433,8 +5579,12 @@
         {
           "category": "Grants",
           "budget": 350000.0,
-          "fy26_actual": 330000.0,
-          "fy27_actual": 0,
+          "fy_actuals": {
+            "FY24": 0,
+            "FY25": 0,
+            "FY26": 330000.0,
+            "FY27": 0
+          },
           "total_actual": 330000.0,
           "variance": 20000.0,
           "pct_used": 94.3
@@ -5442,8 +5592,12 @@
         {
           "category": "Capacity Strengthening",
           "budget": 60000.0,
-          "fy26_actual": 69129.66,
-          "fy27_actual": 0,
+          "fy_actuals": {
+            "FY24": 0,
+            "FY25": 0,
+            "FY26": 69129.66,
+            "FY27": 0
+          },
           "total_actual": 69129.66,
           "variance": -9129.66,
           "pct_used": 115.2
@@ -5451,8 +5605,12 @@
         {
           "category": "Communications",
           "budget": 0.0,
-          "fy26_actual": 1037.0,
-          "fy27_actual": 0,
+          "fy_actuals": {
+            "FY24": 0,
+            "FY25": 0,
+            "FY26": 1037.0,
+            "FY27": 0
+          },
           "total_actual": 1037.0,
           "variance": -1037.0,
           "pct_used": 0
@@ -5460,8 +5618,12 @@
         {
           "category": "Staffing",
           "budget": 90000.0,
-          "fy26_actual": 39504.0,
-          "fy27_actual": 0,
+          "fy_actuals": {
+            "FY24": 0,
+            "FY25": 0,
+            "FY26": 39504.0,
+            "FY27": 0
+          },
           "total_actual": 39504.0,
           "variance": 50496.0,
           "pct_used": 43.9
@@ -5469,8 +5631,12 @@
         {
           "category": "Travel",
           "budget": 0.0,
-          "fy26_actual": 3930.42,
-          "fy27_actual": 0,
+          "fy_actuals": {
+            "FY24": 0,
+            "FY25": 0,
+            "FY26": 3930.42,
+            "FY27": 0
+          },
           "total_actual": 3930.42,
           "variance": -3930.42,
           "pct_used": 0
@@ -5478,8 +5644,12 @@
         {
           "category": "Overhead / Other",
           "budget": 0.0,
-          "fy26_actual": 50828.5,
-          "fy27_actual": 0,
+          "fy_actuals": {
+            "FY24": 0,
+            "FY25": 0,
+            "FY26": 50828.5,
+            "FY27": 0
+          },
           "total_actual": 50828.5,
           "variance": -50828.5,
           "pct_used": 0
@@ -6197,19 +6367,38 @@
       "entity": "HK",
       "entity_group": "HK",
       "start_date": "2025-08-01",
-      "end_date": "2028-07-30",
-      "days_remaining": 685,
+      "end_date": "2028-08-01",
+      "days_remaining": 687,
       "grant_status": "Active",
       "lead": "Deborah Leaver",
       "lead_email": "dleaver@empowerweb.org",
       "orig_currency": "Not verified",
       "budget_total": 900000.0,
       "purpose": "",
-      "rep_schedule": "",
-      "payment_schedule": "",
       "agreement_status": "Needs agreement review",
-      "fy26_income": 300000.0,
-      "fy27_income": 0,
+      "source_status": "Needs agreement/briefing review",
+      "next_key_date": "",
+      "next_report_due": "",
+      "next_install_due": "",
+      "next_install_amt": 0.0,
+      "rep_schedule_text": "Not verified",
+      "payment_schedule_text": "Not verified",
+      "payment_installments": [],
+      "total_outstanding": 0,
+      "reporting_schedule": [],
+      "needs_review": [
+        {
+          "item": "Cargill",
+          "issue": "Reporting and installment schedule not verified",
+          "action": "Open signed agreement and latest briefing sheet; populate dates and payment conditions"
+        }
+      ],
+      "fy_income": {
+        "FY24": 0,
+        "FY25": 0,
+        "FY26": 300000.0,
+        "FY27": 0
+      },
       "total_income": 300000.0,
       "income_lines": [
         {
@@ -6220,8 +6409,12 @@
           "amount": 300000.0
         }
       ],
-      "fy26_expenses": 287000.0,
-      "fy27_expenses": 0,
+      "fy_expenses": {
+        "FY24": 0,
+        "FY25": 0,
+        "FY26": 287000.0,
+        "FY27": 0
+      },
       "total_expenses": 287000.0,
       "balance": 613000.0,
       "pct_used": 31.9,
@@ -6229,8 +6422,12 @@
         {
           "category": "Grants",
           "budget": 855000.0,
-          "fy26_actual": 287000.0,
-          "fy27_actual": 0,
+          "fy_actuals": {
+            "FY24": 0,
+            "FY25": 0,
+            "FY26": 287000.0,
+            "FY27": 0
+          },
           "total_actual": 287000.0,
           "variance": 568000.0,
           "pct_used": 33.6
@@ -6238,8 +6435,12 @@
         {
           "category": "Capacity Strengthening",
           "budget": 45000.0,
-          "fy26_actual": 0,
-          "fy27_actual": 0,
+          "fy_actuals": {
+            "FY24": 0,
+            "FY25": 0,
+            "FY26": 0,
+            "FY27": 0
+          },
           "total_actual": 0,
           "variance": 45000.0,
           "pct_used": 0.0
@@ -6247,8 +6448,12 @@
         {
           "category": "Communications",
           "budget": 0.0,
-          "fy26_actual": 0,
-          "fy27_actual": 0,
+          "fy_actuals": {
+            "FY24": 0,
+            "FY25": 0,
+            "FY26": 0,
+            "FY27": 0
+          },
           "total_actual": 0,
           "variance": 0.0,
           "pct_used": 0
@@ -6256,8 +6461,12 @@
         {
           "category": "Staffing",
           "budget": 0.0,
-          "fy26_actual": 0,
-          "fy27_actual": 0,
+          "fy_actuals": {
+            "FY24": 0,
+            "FY25": 0,
+            "FY26": 0,
+            "FY27": 0
+          },
           "total_actual": 0,
           "variance": 0.0,
           "pct_used": 0
@@ -6265,8 +6474,12 @@
         {
           "category": "Travel",
           "budget": 0.0,
-          "fy26_actual": 0,
-          "fy27_actual": 0,
+          "fy_actuals": {
+            "FY24": 0,
+            "FY25": 0,
+            "FY26": 0,
+            "FY27": 0
+          },
           "total_actual": 0,
           "variance": 0.0,
           "pct_used": 0
@@ -6274,8 +6487,12 @@
         {
           "category": "Overhead / Other",
           "budget": 0.0,
-          "fy26_actual": 0,
-          "fy27_actual": 0,
+          "fy_actuals": {
+            "FY24": 0,
+            "FY25": 0,
+            "FY26": 0,
+            "FY27": 0
+          },
           "total_actual": 0,
           "variance": 0.0,
           "pct_used": 0
@@ -6385,16 +6602,54 @@
       "end_date": "2027-06-30",
       "days_remaining": 289,
       "grant_status": "Active",
-      "lead": "heera@empowerweb.org",
+      "lead": "Heera",
       "lead_email": "myu@empowerweb.org",
       "orig_currency": "Not verified",
       "budget_total": 113000.0,
       "purpose": "",
-      "rep_schedule": "",
-      "payment_schedule": "",
       "agreement_status": "Needs agreement review",
-      "fy26_income": 116000.0,
-      "fy27_income": 0,
+      "source_status": "Briefing sheet; USD amount differs from EUR100,000 original",
+      "next_key_date": "2027-06-30",
+      "next_report_due": "2027-06-30",
+      "next_install_due": "",
+      "next_install_amt": 0.0,
+      "rep_schedule_text": "Final financial report, learning call, Phase 2 concept note and narrative due 30-Jun-2027",
+      "payment_schedule_text": "One installment: $100,000 on 01-Jul-2026 (briefing also states agreed reporting currency EUR)",
+      "payment_installments": [
+        {
+          "installment_no": "1",
+          "amount": 100000.0,
+          "due_date": "2026-07-01",
+          "condition": "Scheduled receipt",
+          "status": "Assumed received",
+          "outstanding": 0.0,
+          "is_next": false
+        }
+      ],
+      "total_outstanding": 0.0,
+      "reporting_schedule": [
+        {
+          "report_type": "Final financial + narrative package",
+          "period": "Full grant period",
+          "due_date": "2027-06-30",
+          "requirements": "Budget vs actual by activity and overhead; learning call; Phase 2 concept note",
+          "lead": "Heera",
+          "status": "Upcoming"
+        }
+      ],
+      "needs_review": [
+        {
+          "item": "Porticus installment",
+          "issue": "Briefing shows EUR100,000 original and USD100,000 installment while master total is USD113,000",
+          "action": "Confirm actual USD receipt and exchange rate"
+        }
+      ],
+      "fy_income": {
+        "FY24": 0,
+        "FY25": 0,
+        "FY26": 116000.0,
+        "FY27": 0
+      },
       "total_income": 116000.0,
       "income_lines": [
         {
@@ -6419,8 +6674,12 @@
           "amount": -116000.0
         }
       ],
-      "fy26_expenses": 0,
-      "fy27_expenses": 3023.22,
+      "fy_expenses": {
+        "FY24": 0,
+        "FY25": 0,
+        "FY26": 0,
+        "FY27": 3023.22
+      },
       "total_expenses": 3023.22,
       "balance": 109976.78,
       "pct_used": 2.7,
@@ -6428,8 +6687,12 @@
         {
           "category": "Grants",
           "budget": 0.0,
-          "fy26_actual": 0,
-          "fy27_actual": 0,
+          "fy_actuals": {
+            "FY24": 0,
+            "FY25": 0,
+            "FY26": 0,
+            "FY27": 0
+          },
           "total_actual": 0,
           "variance": 0.0,
           "pct_used": 0
@@ -6437,8 +6700,12 @@
         {
           "category": "Capacity Strengthening",
           "budget": 95631.0,
-          "fy26_actual": 0,
-          "fy27_actual": 0,
+          "fy_actuals": {
+            "FY24": 0,
+            "FY25": 0,
+            "FY26": 0,
+            "FY27": 0
+          },
           "total_actual": 0,
           "variance": 95631.0,
           "pct_used": 0.0
@@ -6446,8 +6713,12 @@
         {
           "category": "Communications",
           "budget": 0.0,
-          "fy26_actual": 0,
-          "fy27_actual": 106.56,
+          "fy_actuals": {
+            "FY24": 0,
+            "FY25": 0,
+            "FY26": 0,
+            "FY27": 106.56
+          },
           "total_actual": 106.56,
           "variance": -106.56,
           "pct_used": 0
@@ -6455,8 +6726,12 @@
         {
           "category": "Staffing",
           "budget": 13027.0,
-          "fy26_actual": 0,
-          "fy27_actual": 972.16,
+          "fy_actuals": {
+            "FY24": 0,
+            "FY25": 0,
+            "FY26": 0,
+            "FY27": 972.16
+          },
           "total_actual": 972.16,
           "variance": 12054.84,
           "pct_used": 7.5
@@ -6464,8 +6739,12 @@
         {
           "category": "Travel",
           "budget": 0.0,
-          "fy26_actual": 0,
-          "fy27_actual": 0,
+          "fy_actuals": {
+            "FY24": 0,
+            "FY25": 0,
+            "FY26": 0,
+            "FY27": 0
+          },
           "total_actual": 0,
           "variance": 0.0,
           "pct_used": 0
@@ -6473,8 +6752,12 @@
         {
           "category": "Overhead / Other",
           "budget": 4342.0,
-          "fy26_actual": 0,
-          "fy27_actual": 1944.5,
+          "fy_actuals": {
+            "FY24": 0,
+            "FY25": 0,
+            "FY26": 0,
+            "FY27": 1944.5
+          },
           "total_actual": 1944.5,
           "variance": 2397.5,
           "pct_used": 44.8
@@ -6563,11 +6846,88 @@
       "orig_currency": "GBP",
       "budget_total": 1818161.24,
       "purpose": "Working Together to Build Thriving Communities in Peru; youth mental health ecosystem programme.",
-      "rep_schedule": "Tracking reports: 15 Jan and 15 Jul annually; status/annual/final reports through 15 Jul 2028.",
-      "payment_schedule": "GBP 348,390; 149,310; 319,657; 136,996; 274,704; 117,729.10 linked to reporting approvals.",
       "agreement_status": "Signed",
-      "fy26_income": 1825164.52,
-      "fy27_income": 0,
+      "source_status": "Agreement summary in attached master",
+      "next_key_date": "2027-01-15",
+      "next_report_due": "2027-01-15",
+      "next_install_due": "2027-02-20 00:00:00",
+      "next_install_amt": 136996.0,
+      "rep_schedule_text": "Tracking reports due 15-Jan and 15-Jul annually; next status report due 15-Jan-2027",
+      "payment_schedule_text": "$348,390 on execution; $149,310 on 28-Feb-2026; $319,657 on 20-Aug-2026; $136,996 on 20-Feb-2027; $274,704 on 20-Aug-2027; $117,729.10 on 20-Feb-2028",
+      "payment_installments": [
+        {
+          "installment_no": "1",
+          "amount": 348390.0,
+          "due_date": "Upon execution",
+          "condition": "Execution",
+          "status": "Assumed received",
+          "outstanding": 0.0,
+          "is_next": false
+        },
+        {
+          "installment_no": "2",
+          "amount": 149310.0,
+          "due_date": "2026-02-28",
+          "condition": "After status report approval",
+          "status": "Assumed received",
+          "outstanding": 0.0,
+          "is_next": false
+        },
+        {
+          "installment_no": "3",
+          "amount": 319657.0,
+          "due_date": "2026-08-20",
+          "condition": "After first annual report approval",
+          "status": "Assumed received",
+          "outstanding": 0.0,
+          "is_next": false
+        },
+        {
+          "installment_no": "4",
+          "amount": 136996.0,
+          "due_date": "2027-02-20",
+          "condition": "After status report approval",
+          "status": "Upcoming",
+          "outstanding": 136996.0,
+          "is_next": true
+        },
+        {
+          "installment_no": "5",
+          "amount": 274704.0,
+          "due_date": "2027-08-20",
+          "condition": "After second annual report approval",
+          "status": "Future",
+          "outstanding": 274704.0,
+          "is_next": false
+        },
+        {
+          "installment_no": "6",
+          "amount": 117729.1,
+          "due_date": "2028-02-20",
+          "condition": "After status report approval",
+          "status": "Future",
+          "outstanding": 117729.1,
+          "is_next": false
+        }
+      ],
+      "total_outstanding": 529429.1,
+      "reporting_schedule": [
+        {
+          "report_type": "Status report",
+          "period": "Tracking period",
+          "due_date": "2027-01-15",
+          "requirements": "Payment-linked approval",
+          "lead": "Daniel Parnetti",
+          "status": "Upcoming"
+        }
+      ],
+      "needs_review": [],
+      "fy_income": {
+        "FY24": 0,
+        "FY25": 0,
+        "FY26": 1825164.52,
+        "FY27": 0
+      },
       "total_income": 1825164.52,
       "income_lines": [
         {
@@ -6585,8 +6945,12 @@
           "amount": 1353026.39
         }
       ],
-      "fy26_expenses": 507104.41,
-      "fy27_expenses": 260794.07,
+      "fy_expenses": {
+        "FY24": 0,
+        "FY25": 0,
+        "FY26": 507104.41,
+        "FY27": 260794.07
+      },
       "total_expenses": 767898.48,
       "balance": 1050262.76,
       "pct_used": 42.2,
@@ -6594,8 +6958,12 @@
         {
           "category": "Grants",
           "budget": 788400.2,
-          "fy26_actual": 215000.0,
-          "fy27_actual": 234200.0,
+          "fy_actuals": {
+            "FY24": 0,
+            "FY25": 0,
+            "FY26": 215000.0,
+            "FY27": 234200.0
+          },
           "total_actual": 449200.0,
           "variance": 339200.2,
           "pct_used": 57.0
@@ -6603,8 +6971,12 @@
         {
           "category": "Capacity Strengthening",
           "budget": 577740.6,
-          "fy26_actual": 127136.6,
-          "fy27_actual": 5409.25,
+          "fy_actuals": {
+            "FY24": 0,
+            "FY25": 0,
+            "FY26": 127136.6,
+            "FY27": 5409.25
+          },
           "total_actual": 132545.85,
           "variance": 445194.75,
           "pct_used": 22.9
@@ -6612,8 +6984,12 @@
         {
           "category": "Communications",
           "budget": 28350.4,
-          "fy26_actual": 2650.0,
-          "fy27_actual": 2680.0,
+          "fy_actuals": {
+            "FY24": 0,
+            "FY25": 0,
+            "FY26": 2650.0,
+            "FY27": 2680.0
+          },
           "total_actual": 5330.0,
           "variance": 23020.4,
           "pct_used": 18.8
@@ -6621,8 +6997,12 @@
         {
           "category": "Staffing",
           "budget": 238131.9,
-          "fy26_actual": 118320.48,
-          "fy27_actual": 13708.5,
+          "fy_actuals": {
+            "FY24": 0,
+            "FY25": 0,
+            "FY26": 118320.48,
+            "FY27": 13708.5
+          },
           "total_actual": 132028.98,
           "variance": 106102.92,
           "pct_used": 55.4
@@ -6630,8 +7010,12 @@
         {
           "category": "Travel",
           "budget": 20250.5,
-          "fy26_actual": 22789.14,
-          "fy27_actual": 7193.74,
+          "fy_actuals": {
+            "FY24": 0,
+            "FY25": 0,
+            "FY26": 22789.14,
+            "FY27": 7193.74
+          },
           "total_actual": 29982.88,
           "variance": -9732.38,
           "pct_used": 148.1
@@ -6639,8 +7023,12 @@
         {
           "category": "Overhead / Other",
           "budget": 165287.65,
-          "fy26_actual": 21208.19,
-          "fy27_actual": -2397.42,
+          "fy_actuals": {
+            "FY24": 0,
+            "FY25": 0,
+            "FY26": 21208.19,
+            "FY27": -2397.42
+          },
           "total_actual": 18810.77,
           "variance": 146476.88,
           "pct_used": 11.4
@@ -10980,11 +11368,68 @@
       "orig_currency": "Not verified",
       "budget_total": 100000.0,
       "purpose": "",
-      "rep_schedule": "",
-      "payment_schedule": "",
       "agreement_status": "Needs agreement review",
-      "fy26_income": 0,
-      "fy27_income": 0,
+      "source_status": "Briefing sheet",
+      "next_key_date": "2026-10-31",
+      "next_report_due": "2026-10-31",
+      "next_install_due": "",
+      "next_install_amt": 0.0,
+      "rep_schedule_text": "Progress and certified programme accounts due 31-Oct-2026; audited FY25/26 report due 31-Jan-2027; audited FY26/27 report due 31-Jan-2028",
+      "payment_schedule_text": "Instalment 1: $50,000 on 30-Sep-2024; Instalment 2: $50,000 on 30-Nov-2025",
+      "payment_installments": [
+        {
+          "installment_no": "1",
+          "amount": 50000.0,
+          "due_date": "2024-09-30",
+          "condition": "Scheduled receipt",
+          "status": "Assumed received",
+          "outstanding": 0.0,
+          "is_next": false
+        },
+        {
+          "installment_no": "2",
+          "amount": 50000.0,
+          "due_date": "2025-11-30",
+          "condition": "Scheduled receipt",
+          "status": "Assumed received",
+          "outstanding": 0.0,
+          "is_next": false
+        }
+      ],
+      "total_outstanding": 0.0,
+      "reporting_schedule": [
+        {
+          "report_type": "Progress + certified programme accounts",
+          "period": "01-Apr-2026 to 30-Sep-2026",
+          "due_date": "2026-10-31",
+          "requirements": "Progress report and certified statement of accounts",
+          "lead": "Raul Khunda",
+          "status": "Upcoming"
+        },
+        {
+          "report_type": "Audited annual financial report",
+          "period": "FY 2025/26",
+          "due_date": "2027-01-31",
+          "requirements": "EMpower annual audited financial report",
+          "lead": "Raul Khunda",
+          "status": "Upcoming"
+        },
+        {
+          "report_type": "Audited annual financial report",
+          "period": "FY 2026/27",
+          "due_date": "2028-01-31",
+          "requirements": "EMpower annual audited financial report",
+          "lead": "Raul Khunda",
+          "status": "Upcoming"
+        }
+      ],
+      "needs_review": [],
+      "fy_income": {
+        "FY24": 0,
+        "FY25": 50000.0,
+        "FY26": 0,
+        "FY27": 0
+      },
       "total_income": 50000.0,
       "income_lines": [
         {
@@ -11002,8 +11447,12 @@
           "amount": 40000.0
         }
       ],
-      "fy26_expenses": 50001.93,
-      "fy27_expenses": 0,
+      "fy_expenses": {
+        "FY24": 0,
+        "FY25": 50000.0,
+        "FY26": 50001.93,
+        "FY27": 0
+      },
       "total_expenses": 100001.93,
       "balance": -1.93,
       "pct_used": 100.0,
@@ -11011,8 +11460,12 @@
         {
           "category": "Grants",
           "budget": 100000.0,
-          "fy26_actual": 50000.0,
-          "fy27_actual": 0,
+          "fy_actuals": {
+            "FY24": 0,
+            "FY25": 50000.0,
+            "FY26": 50000.0,
+            "FY27": 0
+          },
           "total_actual": 100000.0,
           "variance": 0.0,
           "pct_used": 100.0
@@ -11020,8 +11473,12 @@
         {
           "category": "Capacity Strengthening",
           "budget": 0.0,
-          "fy26_actual": 0,
-          "fy27_actual": 0,
+          "fy_actuals": {
+            "FY24": 0,
+            "FY25": 0,
+            "FY26": 0,
+            "FY27": 0
+          },
           "total_actual": 0,
           "variance": 0.0,
           "pct_used": 0
@@ -11029,8 +11486,12 @@
         {
           "category": "Communications",
           "budget": 0.0,
-          "fy26_actual": 0,
-          "fy27_actual": 0,
+          "fy_actuals": {
+            "FY24": 0,
+            "FY25": 0,
+            "FY26": 0,
+            "FY27": 0
+          },
           "total_actual": 0,
           "variance": 0.0,
           "pct_used": 0
@@ -11038,8 +11499,12 @@
         {
           "category": "Staffing",
           "budget": 0.0,
-          "fy26_actual": 0,
-          "fy27_actual": 0,
+          "fy_actuals": {
+            "FY24": 0,
+            "FY25": 0,
+            "FY26": 0,
+            "FY27": 0
+          },
           "total_actual": 0,
           "variance": 0.0,
           "pct_used": 0
@@ -11047,8 +11512,12 @@
         {
           "category": "Travel",
           "budget": 0.0,
-          "fy26_actual": 0,
-          "fy27_actual": 0,
+          "fy_actuals": {
+            "FY24": 0,
+            "FY25": 0,
+            "FY26": 0,
+            "FY27": 0
+          },
           "total_actual": 0,
           "variance": 0.0,
           "pct_used": 0
@@ -11056,8 +11525,12 @@
         {
           "category": "Overhead / Other",
           "budget": 0.0,
-          "fy26_actual": 1.93,
-          "fy27_actual": 0,
+          "fy_actuals": {
+            "FY24": 0,
+            "FY25": 0,
+            "FY26": 1.93,
+            "FY27": 0
+          },
           "total_actual": 1.93,
           "variance": -1.93,
           "pct_used": 0
@@ -11075,7 +11548,7 @@
           "debit": 50000.0,
           "credit": 0.0,
           "net": 50000.0,
-          "fy": "Other"
+          "fy": "FY25"
         },
         {
           "date": "2025-11-28",
@@ -11128,16 +11601,57 @@
       "end_date": "2026-12-31",
       "days_remaining": 108,
       "grant_status": "Active",
-      "lead": "heera@empowerweb.org",
+      "lead": "Heera",
       "lead_email": "myu@empowerweb.org",
       "orig_currency": "Not verified",
       "budget_total": 500000.0,
       "purpose": "",
-      "rep_schedule": "",
-      "payment_schedule": "",
       "agreement_status": "Needs agreement review",
-      "fy26_income": 0,
-      "fy27_income": 0,
+      "source_status": "Briefing sheet",
+      "next_key_date": "2027-03-31",
+      "next_report_due": "2027-03-31",
+      "next_install_due": "",
+      "next_install_amt": 0.0,
+      "rep_schedule_text": "Annual report due 28-Feb-2026 for 2025; final report due 31-Mar-2027 for full grant",
+      "payment_schedule_text": "Instalment 1: $243,350 upon signature; Instalment 2: $256,650 on 31-Mar-2026",
+      "payment_installments": [
+        {
+          "installment_no": "1",
+          "amount": 243350.0,
+          "due_date": "Upon signature",
+          "condition": "Execution",
+          "status": "Assumed received",
+          "outstanding": 0.0,
+          "is_next": false
+        },
+        {
+          "installment_no": "2",
+          "amount": 256650.0,
+          "due_date": "2026-03-31",
+          "condition": "Subject to satisfactory progress",
+          "status": "Assumed received",
+          "outstanding": 0.0,
+          "is_next": false
+        }
+      ],
+      "total_outstanding": 0.0,
+      "reporting_schedule": [
+        {
+          "report_type": "Final",
+          "period": "01-Jan-2025 to 31-Dec-2026",
+          "due_date": "2027-03-31",
+          "requirements": "Progress against proposal outcomes and milestones",
+          "lead": "Heera",
+          "status": "Upcoming"
+        }
+      ],
+      "needs_review": [],
+      "fy_income": {
+        "FY24": 0,
+        "FY25": 500000.0,
+        "FY26": 0,
+        "FY27": 0
+      },
       "total_income": 500000.0,
       "income_lines": [
         {
@@ -11169,8 +11683,12 @@
           "amount": 256650.0
         }
       ],
-      "fy26_expenses": 213679.62,
-      "fy27_expenses": 0,
+      "fy_expenses": {
+        "FY24": 0,
+        "FY25": 235320.0,
+        "FY26": 213679.62,
+        "FY27": 0
+      },
       "total_expenses": 448999.62,
       "balance": 51000.38,
       "pct_used": 89.8,
@@ -11178,8 +11696,12 @@
         {
           "category": "Grants",
           "budget": 296000.0,
-          "fy26_actual": 89000.0,
-          "fy27_actual": 0,
+          "fy_actuals": {
+            "FY24": 0,
+            "FY25": 207000.0,
+            "FY26": 89000.0,
+            "FY27": 0
+          },
           "total_actual": 296000.0,
           "variance": 0.0,
           "pct_used": 100.0
@@ -11187,8 +11709,12 @@
         {
           "category": "Capacity Strengthening",
           "budget": 101480.0,
-          "fy26_actual": 55100.0,
-          "fy27_actual": 0,
+          "fy_actuals": {
+            "FY24": 0,
+            "FY25": 0,
+            "FY26": 55100.0,
+            "FY27": 0
+          },
           "total_actual": 55100.0,
           "variance": 46380.0,
           "pct_used": 54.3
@@ -11196,8 +11722,12 @@
         {
           "category": "Communications",
           "budget": 6720.0,
-          "fy26_actual": 0,
-          "fy27_actual": 0,
+          "fy_actuals": {
+            "FY24": 0,
+            "FY25": 0,
+            "FY26": 0,
+            "FY27": 0
+          },
           "total_actual": 0,
           "variance": 6720.0,
           "pct_used": 0.0
@@ -11205,8 +11735,12 @@
         {
           "category": "Staffing",
           "budget": 70800.0,
-          "fy26_actual": 43406.5,
-          "fy27_actual": 0,
+          "fy_actuals": {
+            "FY24": 0,
+            "FY25": 28320.0,
+            "FY26": 43406.5,
+            "FY27": 0
+          },
           "total_actual": 71726.5,
           "variance": -926.5,
           "pct_used": 101.3
@@ -11214,8 +11748,12 @@
         {
           "category": "Travel",
           "budget": 0.0,
-          "fy26_actual": 1799.62,
-          "fy27_actual": 0,
+          "fy_actuals": {
+            "FY24": 0,
+            "FY25": 0,
+            "FY26": 1799.62,
+            "FY27": 0
+          },
           "total_actual": 1799.62,
           "variance": -1799.62,
           "pct_used": 0
@@ -11223,8 +11761,12 @@
         {
           "category": "Overhead / Other",
           "budget": 25000.0,
-          "fy26_actual": 24373.5,
-          "fy27_actual": 0,
+          "fy_actuals": {
+            "FY24": 0,
+            "FY25": 0,
+            "FY26": 24373.5,
+            "FY27": 0
+          },
           "total_actual": 24373.5,
           "variance": 626.5,
           "pct_used": 97.5
@@ -11242,7 +11784,7 @@
           "debit": 100000.0,
           "credit": 0.0,
           "net": 100000.0,
-          "fy": "Other"
+          "fy": "FY25"
         },
         {
           "date": "2025-05-14",
@@ -11255,7 +11797,7 @@
           "debit": 67000.0,
           "credit": 0.0,
           "net": 67000.0,
-          "fy": "Other"
+          "fy": "FY25"
         },
         {
           "date": "2025-05-20",
@@ -11268,7 +11810,7 @@
           "debit": 40000.0,
           "credit": 0.0,
           "net": 40000.0,
-          "fy": "Other"
+          "fy": "FY25"
         },
         {
           "date": "2025-06-30",
@@ -11281,7 +11823,7 @@
           "debit": 6320.0,
           "credit": 0.0,
           "net": 6320.0,
-          "fy": "Other"
+          "fy": "FY25"
         },
         {
           "date": "2025-06-30",
@@ -11294,7 +11836,7 @@
           "debit": 7000.0,
           "credit": 0.0,
           "net": 7000.0,
-          "fy": "Other"
+          "fy": "FY25"
         },
         {
           "date": "2025-06-30",
@@ -11307,7 +11849,7 @@
           "debit": 15000.0,
           "credit": 0.0,
           "net": 15000.0,
-          "fy": "Other"
+          "fy": "FY25"
         },
         {
           "date": "2025-06-30",
@@ -11320,7 +11862,7 @@
           "debit": 0.0,
           "credit": 6320.0,
           "net": -6320.0,
-          "fy": "Other"
+          "fy": "FY25"
         },
         {
           "date": "2025-06-30",
@@ -11333,7 +11875,7 @@
           "debit": 0.0,
           "credit": 7000.0,
           "net": -7000.0,
-          "fy": "Other"
+          "fy": "FY25"
         },
         {
           "date": "2025-06-30",
@@ -11346,7 +11888,7 @@
           "debit": 0.0,
           "credit": 15000.0,
           "net": -15000.0,
-          "fy": "Other"
+          "fy": "FY25"
         },
         {
           "date": "2025-06-30",
@@ -11359,7 +11901,7 @@
           "debit": 6320.0,
           "credit": 0.0,
           "net": 6320.0,
-          "fy": "Other"
+          "fy": "FY25"
         },
         {
           "date": "2025-06-30",
@@ -11372,7 +11914,7 @@
           "debit": 7000.0,
           "credit": 0.0,
           "net": 7000.0,
-          "fy": "Other"
+          "fy": "FY25"
         },
         {
           "date": "2025-06-30",
@@ -11385,7 +11927,7 @@
           "debit": 15000.0,
           "credit": 0.0,
           "net": 15000.0,
-          "fy": "Other"
+          "fy": "FY25"
         },
         {
           "date": "2025-07-03",
@@ -13297,16 +13839,63 @@
       "end_date": "2027-03-12",
       "days_remaining": 179,
       "grant_status": "Active",
-      "lead": "heera@empowerweb.org",
+      "lead": "Heera",
       "lead_email": "myu@empowerweb.org",
       "orig_currency": "Not verified",
       "budget_total": 500000.0,
       "purpose": "",
-      "rep_schedule": "",
-      "payment_schedule": "",
       "agreement_status": "Needs agreement review",
-      "fy26_income": 0,
-      "fy27_income": 0,
+      "source_status": "Briefing sheet; date anomaly flagged",
+      "next_key_date": "2027-03-24",
+      "next_report_due": "2027-03-24",
+      "next_install_due": "",
+      "next_install_amt": 0.0,
+      "rep_schedule_text": "Interim reporting noted as delivered; final report due 24-Mar-2027",
+      "payment_schedule_text": "Instalment 1: $250,000 on 26-Aug-2025; Instalment 2: $250,000 (briefing date shows 12-Mar-2025; sequencing needs review)",
+      "payment_installments": [
+        {
+          "installment_no": "1",
+          "amount": 250000.0,
+          "due_date": "2025-08-26",
+          "condition": "Scheduled receipt",
+          "status": "Assumed received",
+          "outstanding": 0.0,
+          "is_next": false
+        },
+        {
+          "installment_no": "2",
+          "amount": 250000.0,
+          "due_date": "2025-03-12",
+          "condition": "Date appears earlier than first tranche; review needed",
+          "status": "Assumed received; date flagged",
+          "outstanding": 0.0,
+          "is_next": false
+        }
+      ],
+      "total_outstanding": 0.0,
+      "reporting_schedule": [
+        {
+          "report_type": "Final",
+          "period": "Full grant period",
+          "due_date": "2027-03-24",
+          "requirements": "Final report; briefing also references video",
+          "lead": "Heera",
+          "status": "Upcoming"
+        }
+      ],
+      "needs_review": [
+        {
+          "item": "Ares second installment",
+          "issue": "Briefing shows 12-Mar-2025, earlier than installment 1",
+          "action": "Confirm date against signed agreement or bank receipt"
+        }
+      ],
+      "fy_income": {
+        "FY24": 0,
+        "FY25": 500000.0,
+        "FY26": 0,
+        "FY27": 0
+      },
       "total_income": 500000.0,
       "income_lines": [
         {
@@ -13317,8 +13906,12 @@
           "amount": 500000.0
         }
       ],
-      "fy26_expenses": 227500.0,
-      "fy27_expenses": 89166.69,
+      "fy_expenses": {
+        "FY24": 0,
+        "FY25": 93750.0,
+        "FY26": 227500.0,
+        "FY27": 89166.69
+      },
       "total_expenses": 410416.69,
       "balance": 89583.31,
       "pct_used": 82.1,
@@ -13326,8 +13919,12 @@
         {
           "category": "Grants",
           "budget": 350000.0,
-          "fy26_actual": 190000.0,
-          "fy27_actual": 85000.0,
+          "fy_actuals": {
+            "FY24": 0,
+            "FY25": 75000.0,
+            "FY26": 190000.0,
+            "FY27": 85000.0
+          },
           "total_actual": 350000.0,
           "variance": 0.0,
           "pct_used": 100.0
@@ -13335,8 +13932,12 @@
         {
           "category": "Capacity Strengthening",
           "budget": 68000.0,
-          "fy26_actual": 0,
-          "fy27_actual": 0,
+          "fy_actuals": {
+            "FY24": 0,
+            "FY25": 0,
+            "FY26": 0,
+            "FY27": 0
+          },
           "total_actual": 0,
           "variance": 68000.0,
           "pct_used": 0.0
@@ -13344,8 +13945,12 @@
         {
           "category": "Communications",
           "budget": 7000.0,
-          "fy26_actual": 0,
-          "fy27_actual": 0,
+          "fy_actuals": {
+            "FY24": 0,
+            "FY25": 0,
+            "FY26": 0,
+            "FY27": 0
+          },
           "total_actual": 0,
           "variance": 7000.0,
           "pct_used": 0.0
@@ -13353,8 +13958,12 @@
         {
           "category": "Staffing",
           "budget": 75000.0,
-          "fy26_actual": 37500.0,
-          "fy27_actual": 4166.69,
+          "fy_actuals": {
+            "FY24": 0,
+            "FY25": 18750.0,
+            "FY26": 37500.0,
+            "FY27": 4166.69
+          },
           "total_actual": 60416.69,
           "variance": 14583.31,
           "pct_used": 80.6
@@ -13362,8 +13971,12 @@
         {
           "category": "Travel",
           "budget": 0.0,
-          "fy26_actual": 0,
-          "fy27_actual": 0,
+          "fy_actuals": {
+            "FY24": 0,
+            "FY25": 0,
+            "FY26": 0,
+            "FY27": 0
+          },
           "total_actual": 0,
           "variance": 0.0,
           "pct_used": 0
@@ -13371,8 +13984,12 @@
         {
           "category": "Overhead / Other",
           "budget": 0.0,
-          "fy26_actual": 0,
-          "fy27_actual": 0,
+          "fy_actuals": {
+            "FY24": 0,
+            "FY25": 0,
+            "FY26": 0,
+            "FY27": 0
+          },
           "total_actual": 0,
           "variance": 0.0,
           "pct_used": 0
@@ -13390,7 +14007,7 @@
           "debit": 75000.0,
           "credit": 0.0,
           "net": 75000.0,
-          "fy": "Other"
+          "fy": "FY25"
         },
         {
           "date": "2025-06-30",
@@ -13403,7 +14020,7 @@
           "debit": 18750.0,
           "credit": 0.0,
           "net": 18750.0,
-          "fy": "Other"
+          "fy": "FY25"
         },
         {
           "date": "2025-06-30",
@@ -13416,7 +14033,7 @@
           "debit": 8750.0,
           "credit": 0.0,
           "net": 8750.0,
-          "fy": "Other"
+          "fy": "FY25"
         },
         {
           "date": "2025-06-30",
@@ -13429,7 +14046,7 @@
           "debit": 10000.0,
           "credit": 0.0,
           "net": 10000.0,
-          "fy": "Other"
+          "fy": "FY25"
         },
         {
           "date": "2025-06-30",
@@ -13442,7 +14059,7 @@
           "debit": 0.0,
           "credit": 18750.0,
           "net": -18750.0,
-          "fy": "Other"
+          "fy": "FY25"
         },
         {
           "date": "2025-09-30",
@@ -13825,11 +14442,60 @@
       "orig_currency": "Not verified",
       "budget_total": 100000.0,
       "purpose": "",
-      "rep_schedule": "",
-      "payment_schedule": "",
       "agreement_status": "Needs agreement review",
-      "fy26_income": 0,
-      "fy27_income": 0,
+      "source_status": "Briefing sheet",
+      "next_key_date": "2026-11-28",
+      "next_report_due": "2026-11-28",
+      "next_install_due": "",
+      "next_install_amt": 0.0,
+      "rep_schedule_text": "Progress: 28-Nov-2025; annual: 28-May-2026; progress: 28-Nov-2026; final: 28-May-2027. Narrative and financial reporting every six months.",
+      "payment_schedule_text": "Instalment 1: $44,500 on 31-Mar-2025; Instalment 2: $55,500 on 31-Mar-2026",
+      "payment_installments": [
+        {
+          "installment_no": "1",
+          "amount": 44500.0,
+          "due_date": "2025-03-31",
+          "condition": "Scheduled receipt",
+          "status": "Assumed received",
+          "outstanding": 0.0,
+          "is_next": false
+        },
+        {
+          "installment_no": "2",
+          "amount": 55500.0,
+          "due_date": "2026-03-31",
+          "condition": "Scheduled receipt",
+          "status": "Assumed received",
+          "outstanding": 0.0,
+          "is_next": false
+        }
+      ],
+      "total_outstanding": 0.0,
+      "reporting_schedule": [
+        {
+          "report_type": "Progress narrative + financial",
+          "period": "Apr-Sep 2026",
+          "due_date": "2026-11-28",
+          "requirements": "Narrative progress and all grant expenditure",
+          "lead": "Daniel Parnetti",
+          "status": "Upcoming"
+        },
+        {
+          "report_type": "Final narrative + financial",
+          "period": "Oct 2026-Mar 2027",
+          "due_date": "2027-05-28",
+          "requirements": "Final assessment and objectives analysis",
+          "lead": "Daniel Parnetti",
+          "status": "Upcoming"
+        }
+      ],
+      "needs_review": [],
+      "fy_income": {
+        "FY24": 0,
+        "FY25": 100000.45,
+        "FY26": 0,
+        "FY27": 0
+      },
       "total_income": 100000.45,
       "income_lines": [
         {
@@ -13847,8 +14513,12 @@
           "amount": 43300.45
         }
       ],
-      "fy26_expenses": 56000.0,
-      "fy27_expenses": 0.0,
+      "fy_expenses": {
+        "FY24": 0,
+        "FY25": 2868.57,
+        "FY26": 56000.0,
+        "FY27": 0.0
+      },
       "total_expenses": 58868.57,
       "balance": 41131.43,
       "pct_used": 58.9,
@@ -13856,8 +14526,12 @@
         {
           "category": "Grants",
           "budget": 80000.0,
-          "fy26_actual": 40000.0,
-          "fy27_actual": 0,
+          "fy_actuals": {
+            "FY24": 0,
+            "FY25": 0,
+            "FY26": 40000.0,
+            "FY27": 0
+          },
           "total_actual": 40000.0,
           "variance": 40000.0,
           "pct_used": 50.0
@@ -13865,8 +14539,12 @@
         {
           "category": "Capacity Strengthening",
           "budget": 10000.0,
-          "fy26_actual": 10000.0,
-          "fy27_actual": 0,
+          "fy_actuals": {
+            "FY24": 0,
+            "FY25": 0,
+            "FY26": 10000.0,
+            "FY27": 0
+          },
           "total_actual": 10000.0,
           "variance": 0.0,
           "pct_used": 100.0
@@ -13874,8 +14552,12 @@
         {
           "category": "Communications",
           "budget": 1000.0,
-          "fy26_actual": 1000.0,
-          "fy27_actual": 0,
+          "fy_actuals": {
+            "FY24": 0,
+            "FY25": 0,
+            "FY26": 1000.0,
+            "FY27": 0
+          },
           "total_actual": 1000.0,
           "variance": 0.0,
           "pct_used": 100.0
@@ -13883,8 +14565,12 @@
         {
           "category": "Staffing",
           "budget": 9000.0,
-          "fy26_actual": 5000.0,
-          "fy27_actual": 0.0,
+          "fy_actuals": {
+            "FY24": 0,
+            "FY25": 4000.0,
+            "FY26": 5000.0,
+            "FY27": 0.0
+          },
           "total_actual": 9000.0,
           "variance": 0.0,
           "pct_used": 100.0
@@ -13892,8 +14578,12 @@
         {
           "category": "Travel",
           "budget": 0.0,
-          "fy26_actual": 0,
-          "fy27_actual": 0,
+          "fy_actuals": {
+            "FY24": 0,
+            "FY25": 0,
+            "FY26": 0,
+            "FY27": 0
+          },
           "total_actual": 0,
           "variance": 0.0,
           "pct_used": 0
@@ -13901,8 +14591,12 @@
         {
           "category": "Overhead / Other",
           "budget": 0.0,
-          "fy26_actual": 0,
-          "fy27_actual": 0,
+          "fy_actuals": {
+            "FY24": 0,
+            "FY25": -1131.43,
+            "FY26": 0,
+            "FY27": 0
+          },
           "total_actual": -1131.43,
           "variance": 1131.43,
           "pct_used": 0
@@ -13920,7 +14614,7 @@
           "debit": 0.0,
           "credit": 1131.43,
           "net": -1131.43,
-          "fy": "Other"
+          "fy": "FY25"
         },
         {
           "date": "2025-06-30",
@@ -13933,7 +14627,7 @@
           "debit": 2000.0,
           "credit": 0.0,
           "net": 2000.0,
-          "fy": "Other"
+          "fy": "FY25"
         },
         {
           "date": "2025-06-30",
@@ -13946,7 +14640,7 @@
           "debit": 2000.0,
           "credit": 0.0,
           "net": 2000.0,
-          "fy": "Other"
+          "fy": "FY25"
         },
         {
           "date": "2025-09-30",
@@ -14433,11 +15127,30 @@
       "orig_currency": "Not verified",
       "budget_total": 1493609.52,
       "purpose": "",
-      "rep_schedule": "",
-      "payment_schedule": "",
       "agreement_status": "Needs agreement review",
-      "fy26_income": 1493609.52,
-      "fy27_income": 0,
+      "source_status": "Needs agreement/briefing review",
+      "next_key_date": "",
+      "next_report_due": "",
+      "next_install_due": "",
+      "next_install_amt": 0.0,
+      "rep_schedule_text": "Not verified",
+      "payment_schedule_text": "One grant payment referenced; schedule not verified",
+      "payment_installments": [],
+      "total_outstanding": 0,
+      "reporting_schedule": [],
+      "needs_review": [
+        {
+          "item": "ICONIQ",
+          "issue": "Reporting and installment schedule not verified",
+          "action": "Open signed agreement and latest briefing sheet; populate dates and payment conditions"
+        }
+      ],
+      "fy_income": {
+        "FY24": 0,
+        "FY25": 0,
+        "FY26": 1493609.52,
+        "FY27": 0
+      },
       "total_income": 1493609.52,
       "income_lines": [
         {
@@ -14483,8 +15196,12 @@
           "amount": -497869.84
         }
       ],
-      "fy26_expenses": 175679.09,
-      "fy27_expenses": 50650.0,
+      "fy_expenses": {
+        "FY24": 0,
+        "FY25": 0,
+        "FY26": 175679.09,
+        "FY27": 50650.0
+      },
       "total_expenses": 226329.09,
       "balance": 1267280.43,
       "pct_used": 15.2,
@@ -14492,8 +15209,12 @@
         {
           "category": "Grants",
           "budget": 211000.0,
-          "fy26_actual": 83000.0,
-          "fy27_actual": 34000.0,
+          "fy_actuals": {
+            "FY24": 0,
+            "FY25": 0,
+            "FY26": 83000.0,
+            "FY27": 34000.0
+          },
           "total_actual": 117000.0,
           "variance": 94000.0,
           "pct_used": 55.5
@@ -14501,8 +15222,12 @@
         {
           "category": "Capacity Strengthening",
           "budget": 134100.0,
-          "fy26_actual": 41293.36,
-          "fy27_actual": 16650.0,
+          "fy_actuals": {
+            "FY24": 0,
+            "FY25": 0,
+            "FY26": 41293.36,
+            "FY27": 16650.0
+          },
           "total_actual": 57943.36,
           "variance": 76156.64,
           "pct_used": 43.2
@@ -14510,8 +15235,12 @@
         {
           "category": "Communications",
           "budget": 0.0,
-          "fy26_actual": 0,
-          "fy27_actual": 0,
+          "fy_actuals": {
+            "FY24": 0,
+            "FY25": 0,
+            "FY26": 0,
+            "FY27": 0
+          },
           "total_actual": 0,
           "variance": 0.0,
           "pct_used": 0
@@ -14519,8 +15248,12 @@
         {
           "category": "Staffing",
           "budget": 0.0,
-          "fy26_actual": 34448.0,
-          "fy27_actual": 0,
+          "fy_actuals": {
+            "FY24": 0,
+            "FY25": 0,
+            "FY26": 34448.0,
+            "FY27": 0
+          },
           "total_actual": 34448.0,
           "variance": -34448.0,
           "pct_used": 0
@@ -14528,8 +15261,12 @@
         {
           "category": "Travel",
           "budget": 0.0,
-          "fy26_actual": 14221.16,
-          "fy27_actual": 0,
+          "fy_actuals": {
+            "FY24": 0,
+            "FY25": 0,
+            "FY26": 14221.16,
+            "FY27": 0
+          },
           "total_actual": 14221.16,
           "variance": -14221.16,
           "pct_used": 0
@@ -14537,8 +15274,12 @@
         {
           "category": "Overhead / Other",
           "budget": 0.0,
-          "fy26_actual": 2716.57,
-          "fy27_actual": 0,
+          "fy_actuals": {
+            "FY24": 0,
+            "FY25": 0,
+            "FY26": 2716.57,
+            "FY27": 0
+          },
           "total_actual": 2716.57,
           "variance": -2716.57,
           "pct_used": 0
@@ -16130,16 +16871,48 @@
       "end_date": "2027-12-31",
       "days_remaining": 473,
       "grant_status": "Active",
-      "lead": "heera@empowerweb.org",
+      "lead": "Heera",
       "lead_email": "myu@empowerweb.org",
       "orig_currency": "Not verified",
       "budget_total": 650000.0,
       "purpose": "",
-      "rep_schedule": "",
-      "payment_schedule": "",
       "agreement_status": "Needs agreement review",
-      "fy26_income": 650000.0,
-      "fy27_income": 0.0,
+      "source_status": "Signed agreement; briefing also says 01-Feb-2028",
+      "next_key_date": "2028-01-30",
+      "next_report_due": "2028-01-30",
+      "next_install_due": "",
+      "next_install_amt": 0.0,
+      "rep_schedule_text": "Interim check-in call during Q3 2026; final report within 30 days after 31-Dec-2027, due 30-Jan-2028",
+      "payment_schedule_text": "One lump sum: $650,000 within 10 business days of effective date",
+      "payment_installments": [
+        {
+          "installment_no": "1",
+          "amount": 650000.0,
+          "due_date": "Within 10 business days of effective date",
+          "condition": "Single lump sum",
+          "status": "Assumed received",
+          "outstanding": 0.0,
+          "is_next": false
+        }
+      ],
+      "total_outstanding": 0.0,
+      "reporting_schedule": [
+        {
+          "report_type": "Final",
+          "period": "Through 31-Dec-2027",
+          "due_date": "2028-01-30",
+          "requirements": "Impact and use of funds; sub-grants; average size; themes; 1-3 impact stories",
+          "lead": "Heera",
+          "status": "Upcoming"
+        }
+      ],
+      "needs_review": [],
+      "fy_income": {
+        "FY24": 0,
+        "FY25": 0,
+        "FY26": 650000.0,
+        "FY27": 0.0
+      },
       "total_income": 650000.0,
       "income_lines": [
         {
@@ -16164,8 +16937,12 @@
           "amount": -650000.0
         }
       ],
-      "fy26_expenses": 562500.0,
-      "fy27_expenses": 0,
+      "fy_expenses": {
+        "FY24": 0,
+        "FY25": 0,
+        "FY26": 562500.0,
+        "FY27": 0
+      },
       "total_expenses": 562500.0,
       "balance": 87500.0,
       "pct_used": 86.5,
@@ -16173,8 +16950,12 @@
         {
           "category": "Grants",
           "budget": 455000.0,
-          "fy26_actual": 380000.0,
-          "fy27_actual": 0,
+          "fy_actuals": {
+            "FY24": 0,
+            "FY25": 0,
+            "FY26": 380000.0,
+            "FY27": 0
+          },
           "total_actual": 380000.0,
           "variance": 75000.0,
           "pct_used": 83.5
@@ -16182,8 +16963,12 @@
         {
           "category": "Capacity Strengthening",
           "budget": 97500.0,
-          "fy26_actual": 85000.0,
-          "fy27_actual": 0,
+          "fy_actuals": {
+            "FY24": 0,
+            "FY25": 0,
+            "FY26": 85000.0,
+            "FY27": 0
+          },
           "total_actual": 85000.0,
           "variance": 12500.0,
           "pct_used": 87.2
@@ -16191,8 +16976,12 @@
         {
           "category": "Communications",
           "budget": 0.0,
-          "fy26_actual": 0,
-          "fy27_actual": 0,
+          "fy_actuals": {
+            "FY24": 0,
+            "FY25": 0,
+            "FY26": 0,
+            "FY27": 0
+          },
           "total_actual": 0,
           "variance": 0.0,
           "pct_used": 0
@@ -16200,8 +16989,12 @@
         {
           "category": "Staffing",
           "budget": 0.0,
-          "fy26_actual": 88593.0,
-          "fy27_actual": 0,
+          "fy_actuals": {
+            "FY24": 0,
+            "FY25": 0,
+            "FY26": 88593.0,
+            "FY27": 0
+          },
           "total_actual": 88593.0,
           "variance": -88593.0,
           "pct_used": 0
@@ -16209,8 +17002,12 @@
         {
           "category": "Travel",
           "budget": 0.0,
-          "fy26_actual": 0,
-          "fy27_actual": 0,
+          "fy_actuals": {
+            "FY24": 0,
+            "FY25": 0,
+            "FY26": 0,
+            "FY27": 0
+          },
           "total_actual": 0,
           "variance": 0.0,
           "pct_used": 0
@@ -16218,8 +17015,12 @@
         {
           "category": "Overhead / Other",
           "budget": 97500.0,
-          "fy26_actual": 8907.0,
-          "fy27_actual": 0,
+          "fy_actuals": {
+            "FY24": 0,
+            "FY25": 0,
+            "FY26": 8907.0,
+            "FY27": 0
+          },
           "total_actual": 8907.0,
           "variance": 88593.0,
           "pct_used": 9.1
@@ -16724,11 +17525,68 @@
       "orig_currency": "Not verified",
       "budget_total": 458000.0,
       "purpose": "",
-      "rep_schedule": "",
-      "payment_schedule": "",
       "agreement_status": "Needs agreement review",
-      "fy26_income": 458000.0,
-      "fy27_income": 0,
+      "source_status": "Briefing sheet",
+      "next_key_date": "2026-10-01",
+      "next_report_due": "2027-02-15",
+      "next_install_due": "2026-10-01 00:00:00",
+      "next_install_amt": 208000.0,
+      "rep_schedule_text": "Cumulative narrative evaluation and financial accounting: 15-Aug-2026; 15-Feb-2027; 15-Aug-2027; 15-Feb-2028",
+      "payment_schedule_text": "Instalment 1: $250,000 on 20-Nov-2025; Instalment 2: $208,000 on 01-Oct-2026",
+      "payment_installments": [
+        {
+          "installment_no": "1",
+          "amount": 250000.0,
+          "due_date": "2025-11-20",
+          "condition": "Scheduled receipt",
+          "status": "Assumed received",
+          "outstanding": 0.0,
+          "is_next": false
+        },
+        {
+          "installment_no": "2",
+          "amount": 208000.0,
+          "due_date": "2026-10-01",
+          "condition": "Scheduled receipt",
+          "status": "Upcoming",
+          "outstanding": 208000.0,
+          "is_next": true
+        }
+      ],
+      "total_outstanding": 208000.0,
+      "reporting_schedule": [
+        {
+          "report_type": "Cumulative narrative evaluation + financial accounting",
+          "period": "10-Oct-2025 to 31-Dec-2026",
+          "due_date": "2027-02-15",
+          "requirements": "Compare actual grant expenditure with approved budget",
+          "lead": "Adam Heuman",
+          "status": "Upcoming"
+        },
+        {
+          "report_type": "Cumulative narrative evaluation + financial accounting",
+          "period": "10-Oct-2025 to 30-Jun-2027",
+          "due_date": "2027-08-15",
+          "requirements": "Program impact, metrics, goals, outcomes and grant expenditure",
+          "lead": "Adam Heuman",
+          "status": "Upcoming"
+        },
+        {
+          "report_type": "Final cumulative narrative + financial accounting",
+          "period": "10-Oct-2025 to 31-Dec-2027",
+          "due_date": "2028-02-15",
+          "requirements": "Final cumulative report",
+          "lead": "Adam Heuman",
+          "status": "Upcoming"
+        }
+      ],
+      "needs_review": [],
+      "fy_income": {
+        "FY24": 0,
+        "FY25": 0,
+        "FY26": 458000.0,
+        "FY27": 0
+      },
       "total_income": 458000.0,
       "income_lines": [
         {
@@ -16739,8 +17597,12 @@
           "amount": 458000.0
         }
       ],
-      "fy26_expenses": 272341.63,
-      "fy27_expenses": 19629.56,
+      "fy_expenses": {
+        "FY24": 0,
+        "FY25": 0,
+        "FY26": 272341.63,
+        "FY27": 19629.56
+      },
       "total_expenses": 291971.19,
       "balance": 166028.81,
       "pct_used": 63.7,
@@ -16748,8 +17610,12 @@
         {
           "category": "Grants",
           "budget": 208500.0,
-          "fy26_actual": 208500.0,
-          "fy27_actual": 0,
+          "fy_actuals": {
+            "FY24": 0,
+            "FY25": 0,
+            "FY26": 208500.0,
+            "FY27": 0
+          },
           "total_actual": 208500.0,
           "variance": 0.0,
           "pct_used": 100.0
@@ -16757,8 +17623,12 @@
         {
           "category": "Capacity Strengthening",
           "budget": 90000.0,
-          "fy26_actual": 16241.0,
-          "fy27_actual": 12375.0,
+          "fy_actuals": {
+            "FY24": 0,
+            "FY25": 0,
+            "FY26": 16241.0,
+            "FY27": 12375.0
+          },
           "total_actual": 28616.0,
           "variance": 61384.0,
           "pct_used": 31.8
@@ -16766,8 +17636,12 @@
         {
           "category": "Communications",
           "budget": 25000.0,
-          "fy26_actual": 0,
-          "fy27_actual": 0,
+          "fy_actuals": {
+            "FY24": 0,
+            "FY25": 0,
+            "FY26": 0,
+            "FY27": 0
+          },
           "total_actual": 0,
           "variance": 25000.0,
           "pct_used": 0.0
@@ -16775,8 +17649,12 @@
         {
           "category": "Staffing",
           "budget": 124500.0,
-          "fy26_actual": 41500.2,
-          "fy27_actual": 7201.16,
+          "fy_actuals": {
+            "FY24": 0,
+            "FY25": 0,
+            "FY26": 41500.2,
+            "FY27": 7201.16
+          },
           "total_actual": 48701.36,
           "variance": 75798.64,
           "pct_used": 39.1
@@ -16784,8 +17662,12 @@
         {
           "category": "Travel",
           "budget": 10000.0,
-          "fy26_actual": 5660.43,
-          "fy27_actual": 53.4,
+          "fy_actuals": {
+            "FY24": 0,
+            "FY25": 0,
+            "FY26": 5660.43,
+            "FY27": 53.4
+          },
           "total_actual": 5713.83,
           "variance": 4286.17,
           "pct_used": 57.1
@@ -16793,8 +17675,12 @@
         {
           "category": "Overhead / Other",
           "budget": 0.0,
-          "fy26_actual": 440.0,
-          "fy27_actual": 0,
+          "fy_actuals": {
+            "FY24": 0,
+            "FY25": 0,
+            "FY26": 440.0,
+            "FY27": 0
+          },
           "total_actual": 440.0,
           "variance": -440.0,
           "pct_used": 0
@@ -17741,11 +18627,69 @@
       "orig_currency": "Not verified",
       "budget_total": 296497.0,
       "purpose": "",
-      "rep_schedule": "",
-      "payment_schedule": "",
       "agreement_status": "Needs agreement review",
-      "fy26_income": 296497.0,
-      "fy27_income": 0,
+      "source_status": "Briefing sheet",
+      "next_key_date": "2027-06-14",
+      "next_report_due": "2027-06-14",
+      "next_install_due": "2027-07-06 00:00:00",
+      "next_install_amt": 88949.0,
+      "rep_schedule_text": "Progress: 14-Aug-2026; progress: 14-Jun-2027; final: 17-May-2028. Reports cover workplan, metrics, budget and expenditure.",
+      "payment_schedule_text": "Instalment 1: $118,599 on 14-Oct-2025; Instalment 2: $88,949 on 01-Sep-2026; Instalment 3: $88,949 on 06-Jul-2027",
+      "payment_installments": [
+        {
+          "installment_no": "1",
+          "amount": 118599.0,
+          "due_date": "2025-10-14",
+          "condition": "Scheduled receipt",
+          "status": "Assumed received",
+          "outstanding": 0.0,
+          "is_next": false
+        },
+        {
+          "installment_no": "2",
+          "amount": 88949.0,
+          "due_date": "2026-09-01",
+          "condition": "Scheduled receipt",
+          "status": "Assumed received",
+          "outstanding": 0.0,
+          "is_next": false
+        },
+        {
+          "installment_no": "3",
+          "amount": 88949.0,
+          "due_date": "2027-07-06",
+          "condition": "Scheduled receipt",
+          "status": "Upcoming",
+          "outstanding": 88949.0,
+          "is_next": true
+        }
+      ],
+      "total_outstanding": 88949.0,
+      "reporting_schedule": [
+        {
+          "report_type": "Progress",
+          "period": "Adjusted period 01-Aug-2026 to 30-May-2027",
+          "due_date": "2027-06-14",
+          "requirements": "Workplan activities, metrics, budget and expenditure",
+          "lead": "Daniel Parnetti",
+          "status": "Upcoming"
+        },
+        {
+          "report_type": "Final",
+          "period": "Full grant period",
+          "due_date": "2028-05-17",
+          "requirements": "Final project report",
+          "lead": "Daniel Parnetti",
+          "status": "Upcoming"
+        }
+      ],
+      "needs_review": [],
+      "fy_income": {
+        "FY24": 0,
+        "FY25": 0,
+        "FY26": 296497.0,
+        "FY27": 0
+      },
       "total_income": 296497.0,
       "income_lines": [
         {
@@ -17756,8 +18700,12 @@
           "amount": 296497.0
         }
       ],
-      "fy26_expenses": 139200.0,
-      "fy27_expenses": 12804.5,
+      "fy_expenses": {
+        "FY24": 0,
+        "FY25": 0,
+        "FY26": 139200.0,
+        "FY27": 12804.5
+      },
       "total_expenses": 152004.5,
       "balance": 144492.5,
       "pct_used": 51.3,
@@ -17765,8 +18713,12 @@
         {
           "category": "Grants",
           "budget": 217200.0,
-          "fy26_actual": 127200.0,
-          "fy27_actual": 0,
+          "fy_actuals": {
+            "FY24": 0,
+            "FY25": 0,
+            "FY26": 127200.0,
+            "FY27": 0
+          },
           "total_actual": 127200.0,
           "variance": 90000.0,
           "pct_used": 58.6
@@ -17774,8 +18726,12 @@
         {
           "category": "Capacity Strengthening",
           "budget": 29900.0,
-          "fy26_actual": 0,
-          "fy27_actual": 9967.0,
+          "fy_actuals": {
+            "FY24": 0,
+            "FY25": 0,
+            "FY26": 0,
+            "FY27": 9967.0
+          },
           "total_actual": 9967.0,
           "variance": 19933.0,
           "pct_used": 33.3
@@ -17783,8 +18739,12 @@
         {
           "category": "Communications",
           "budget": 0.0,
-          "fy26_actual": 0,
-          "fy27_actual": 0,
+          "fy_actuals": {
+            "FY24": 0,
+            "FY25": 0,
+            "FY26": 0,
+            "FY27": 0
+          },
           "total_actual": 0,
           "variance": 0.0,
           "pct_used": 0
@@ -17792,8 +18752,12 @@
         {
           "category": "Staffing",
           "budget": 28642.21,
-          "fy26_actual": 7500.0,
-          "fy27_actual": 2837.5,
+          "fy_actuals": {
+            "FY24": 0,
+            "FY25": 0,
+            "FY26": 7500.0,
+            "FY27": 2837.5
+          },
           "total_actual": 10337.5,
           "variance": 18304.71,
           "pct_used": 36.1
@@ -17801,8 +18765,12 @@
         {
           "category": "Travel",
           "budget": 0.0,
-          "fy26_actual": 0,
-          "fy27_actual": 0,
+          "fy_actuals": {
+            "FY24": 0,
+            "FY25": 0,
+            "FY26": 0,
+            "FY27": 0
+          },
           "total_actual": 0,
           "variance": 0.0,
           "pct_used": 0
@@ -17810,8 +18778,12 @@
         {
           "category": "Overhead / Other",
           "budget": 20754.79,
-          "fy26_actual": 4500.0,
-          "fy27_actual": 0,
+          "fy_actuals": {
+            "FY24": 0,
+            "FY25": 0,
+            "FY26": 4500.0,
+            "FY27": 0
+          },
           "total_actual": 4500.0,
           "variance": 16254.79,
           "pct_used": 21.7
@@ -18285,16 +19257,48 @@
       "end_date": "2027-01-01",
       "days_remaining": 109,
       "grant_status": "Active",
-      "lead": "Coory",
+      "lead": "Coory / Anusha / Chumani / Che",
       "lead_email": "cpakpahan@empowerweb.org",
       "orig_currency": "Not verified",
       "budget_total": 135000.0,
       "purpose": "",
-      "rep_schedule": "",
-      "payment_schedule": "",
       "agreement_status": "Needs agreement review",
-      "fy26_income": 133760.0,
-      "fy27_income": 0,
+      "source_status": "Briefing sheet",
+      "next_key_date": "2027-02-01",
+      "next_report_due": "2027-02-01",
+      "next_install_due": "",
+      "next_install_amt": 0.0,
+      "rep_schedule_text": "Final report due 01-Feb-2027; annual accounts and auditors report within 10 months of financial year end",
+      "payment_schedule_text": "One installment: $135,000 on 15-Dec-2025",
+      "payment_installments": [
+        {
+          "installment_no": "1",
+          "amount": 135000.0,
+          "due_date": "2025-12-15",
+          "condition": "Scheduled receipt",
+          "status": "Assumed received",
+          "outstanding": 0.0,
+          "is_next": false
+        }
+      ],
+      "total_outstanding": 0.0,
+      "reporting_schedule": [
+        {
+          "report_type": "Final",
+          "period": "2026 calendar year",
+          "due_date": "2027-02-01",
+          "requirements": "Activities, achievements, challenges, lessons, spend and beneficiary counts",
+          "lead": "Coory / Anusha / Chumani / Che",
+          "status": "Upcoming"
+        }
+      ],
+      "needs_review": [],
+      "fy_income": {
+        "FY24": 0,
+        "FY25": 0,
+        "FY26": 133760.0,
+        "FY27": 0
+      },
       "total_income": 133760.0,
       "income_lines": [
         {
@@ -18305,8 +19309,12 @@
           "amount": 133760.0
         }
       ],
-      "fy26_expenses": 116794.0,
-      "fy27_expenses": 0,
+      "fy_expenses": {
+        "FY24": 0,
+        "FY25": 0,
+        "FY26": 116794.0,
+        "FY27": 0
+      },
       "total_expenses": 116794.0,
       "balance": 18206.0,
       "pct_used": 86.5,
@@ -18314,8 +19322,12 @@
         {
           "category": "Grants",
           "budget": 84544.0,
-          "fy26_actual": 64544.0,
-          "fy27_actual": 0,
+          "fy_actuals": {
+            "FY24": 0,
+            "FY25": 0,
+            "FY26": 64544.0,
+            "FY27": 0
+          },
           "total_actual": 64544.0,
           "variance": 20000.0,
           "pct_used": 76.3
@@ -18323,8 +19335,12 @@
         {
           "category": "Capacity Strengthening",
           "budget": 23456.0,
-          "fy26_actual": 32000.0,
-          "fy27_actual": 0,
+          "fy_actuals": {
+            "FY24": 0,
+            "FY25": 0,
+            "FY26": 32000.0,
+            "FY27": 0
+          },
           "total_actual": 32000.0,
           "variance": -8544.0,
           "pct_used": 136.4
@@ -18332,8 +19348,12 @@
         {
           "category": "Communications",
           "budget": 0.0,
-          "fy26_actual": 0,
-          "fy27_actual": 0,
+          "fy_actuals": {
+            "FY24": 0,
+            "FY25": 0,
+            "FY26": 0,
+            "FY27": 0
+          },
           "total_actual": 0,
           "variance": 0.0,
           "pct_used": 0
@@ -18341,8 +19361,12 @@
         {
           "category": "Staffing",
           "budget": 27000.0,
-          "fy26_actual": 6750.0,
-          "fy27_actual": 0,
+          "fy_actuals": {
+            "FY24": 0,
+            "FY25": 0,
+            "FY26": 6750.0,
+            "FY27": 0
+          },
           "total_actual": 6750.0,
           "variance": 20250.0,
           "pct_used": 25.0
@@ -18350,8 +19374,12 @@
         {
           "category": "Travel",
           "budget": 0.0,
-          "fy26_actual": 0,
-          "fy27_actual": 0,
+          "fy_actuals": {
+            "FY24": 0,
+            "FY25": 0,
+            "FY26": 0,
+            "FY27": 0
+          },
           "total_actual": 0,
           "variance": 0.0,
           "pct_used": 0
@@ -18359,8 +19387,12 @@
         {
           "category": "Overhead / Other",
           "budget": 0.0,
-          "fy26_actual": 13500.0,
-          "fy27_actual": 0,
+          "fy_actuals": {
+            "FY24": 0,
+            "FY25": 0,
+            "FY26": 13500.0,
+            "FY27": 0
+          },
           "total_actual": 13500.0,
           "variance": -13500.0,
           "pct_used": 0
@@ -18756,16 +19788,63 @@
       "end_date": "2028-12-31",
       "days_remaining": 839,
       "grant_status": "Active",
-      "lead": "heera@empowerweb.org",
+      "lead": "Heera",
       "lead_email": "myu@empowerweb.org",
       "orig_currency": "Not verified",
       "budget_total": 600000.0,
       "purpose": "",
-      "rep_schedule": "",
-      "payment_schedule": "",
       "agreement_status": "Needs agreement review",
-      "fy26_income": 200000.0,
-      "fy27_income": 0,
+      "source_status": "Briefing sheet",
+      "next_key_date": "",
+      "next_report_due": "",
+      "next_install_due": "Condition-based; date not specified",
+      "next_install_amt": 200000.0,
+      "rep_schedule_text": "Annual report plus call; exact dates not specified",
+      "payment_schedule_text": "Instalment 1: $200,000 upon signature; Instalment 2: $200,000 upon review of year 1 report; Instalment 3: $200,000 upon review of year 2 report",
+      "payment_installments": [
+        {
+          "installment_no": "1",
+          "amount": 200000.0,
+          "due_date": "Upon signature",
+          "condition": "Signature",
+          "status": "Assumed received",
+          "outstanding": 0.0,
+          "is_next": false
+        },
+        {
+          "installment_no": "2",
+          "amount": 200000.0,
+          "due_date": "Upon review of year 1 report",
+          "condition": "Annual report approval",
+          "status": "Upcoming; date not specified",
+          "outstanding": 200000.0,
+          "is_next": true
+        },
+        {
+          "installment_no": "3",
+          "amount": 200000.0,
+          "due_date": "Upon review of year 2 report",
+          "condition": "Annual report approval",
+          "status": "Future; date not specified",
+          "outstanding": 200000.0,
+          "is_next": false
+        }
+      ],
+      "total_outstanding": 400000.0,
+      "reporting_schedule": [],
+      "needs_review": [
+        {
+          "item": "Macquarie reports/installments",
+          "issue": "Payment dates are conditional and annual report dates are not stated",
+          "action": "Confirm year 1/year 2 report deadlines and expected tranche dates"
+        }
+      ],
+      "fy_income": {
+        "FY24": 0,
+        "FY25": 0,
+        "FY26": 200000.0,
+        "FY27": 0
+      },
       "total_income": 200000.0,
       "income_lines": [
         {
@@ -18790,8 +19869,12 @@
           "amount": -200000.0
         }
       ],
-      "fy26_expenses": 175000.0,
-      "fy27_expenses": 25000.0,
+      "fy_expenses": {
+        "FY24": 0,
+        "FY25": 0,
+        "FY26": 175000.0,
+        "FY27": 25000.0
+      },
       "total_expenses": 200000.0,
       "balance": 400000.0,
       "pct_used": 33.3,
@@ -18799,8 +19882,12 @@
         {
           "category": "Grants",
           "budget": 410000.0,
-          "fy26_actual": 85000.0,
-          "fy27_actual": 0,
+          "fy_actuals": {
+            "FY24": 0,
+            "FY25": 0,
+            "FY26": 85000.0,
+            "FY27": 0
+          },
           "total_actual": 85000.0,
           "variance": 325000.0,
           "pct_used": 20.7
@@ -18808,8 +19895,12 @@
         {
           "category": "Capacity Strengthening",
           "budget": 88000.0,
-          "fy26_actual": 0,
-          "fy27_actual": 25000.0,
+          "fy_actuals": {
+            "FY24": 0,
+            "FY25": 0,
+            "FY26": 0,
+            "FY27": 25000.0
+          },
           "total_actual": 25000.0,
           "variance": 63000.0,
           "pct_used": 28.4
@@ -18817,8 +19908,12 @@
         {
           "category": "Communications",
           "budget": 0.0,
-          "fy26_actual": 0,
-          "fy27_actual": 0,
+          "fy_actuals": {
+            "FY24": 0,
+            "FY25": 0,
+            "FY26": 0,
+            "FY27": 0
+          },
           "total_actual": 0,
           "variance": 0.0,
           "pct_used": 0
@@ -18826,8 +19921,12 @@
         {
           "category": "Staffing",
           "budget": 102000.0,
-          "fy26_actual": 84969.0,
-          "fy27_actual": 0,
+          "fy_actuals": {
+            "FY24": 0,
+            "FY25": 0,
+            "FY26": 84969.0,
+            "FY27": 0
+          },
           "total_actual": 84969.0,
           "variance": 17031.0,
           "pct_used": 83.3
@@ -18835,8 +19934,12 @@
         {
           "category": "Travel",
           "budget": 0.0,
-          "fy26_actual": 0,
-          "fy27_actual": 0,
+          "fy_actuals": {
+            "FY24": 0,
+            "FY25": 0,
+            "FY26": 0,
+            "FY27": 0
+          },
           "total_actual": 0,
           "variance": 0.0,
           "pct_used": 0
@@ -18844,8 +19947,12 @@
         {
           "category": "Overhead / Other",
           "budget": 0.0,
-          "fy26_actual": 5031.0,
-          "fy27_actual": 0,
+          "fy_actuals": {
+            "FY24": 0,
+            "FY25": 0,
+            "FY26": 5031.0,
+            "FY27": 0
+          },
           "total_actual": 5031.0,
           "variance": -5031.0,
           "pct_used": 0
@@ -18947,11 +20054,66 @@
       "orig_currency": "Not verified",
       "budget_total": 80400.0,
       "purpose": "",
-      "rep_schedule": "",
-      "payment_schedule": "",
       "agreement_status": "Needs agreement review",
-      "fy26_income": 81258.0,
-      "fy27_income": 0,
+      "source_status": "Briefing sheet; second installment amount flagged",
+      "next_key_date": "2027-04-01",
+      "next_report_due": "2027-04-01",
+      "next_install_due": "2027-05-01 00:00:00",
+      "next_install_amt": 30000.0,
+      "rep_schedule_text": "Annual detailed end-of-year report and accounts due 01-Apr-2027 and 01-Apr-2028",
+      "payment_schedule_text": "Instalment 1: $40,200 on 21-May-2026; Instalment 2: briefing shows $30,000 on 01-May-2027; amount to be confirmed at receipt",
+      "payment_installments": [
+        {
+          "installment_no": "1",
+          "amount": 40200.0,
+          "due_date": "2026-05-21",
+          "condition": "Scheduled receipt",
+          "status": "Assumed received",
+          "outstanding": 0.0,
+          "is_next": false
+        },
+        {
+          "installment_no": "2",
+          "amount": 30000.0,
+          "due_date": "2027-05-01",
+          "condition": "Amount to be confirmed at receipt",
+          "status": "Upcoming",
+          "outstanding": 30000.0,
+          "is_next": true
+        }
+      ],
+      "total_outstanding": 30000.0,
+      "reporting_schedule": [
+        {
+          "report_type": "Annual report + annual accounts",
+          "period": "Year 1",
+          "due_date": "2027-04-01",
+          "requirements": "Detailed end-of-year report and annual accounts",
+          "lead": "Deeksha Bhatia",
+          "status": "Upcoming"
+        },
+        {
+          "report_type": "Annual report + annual accounts",
+          "period": "Year 2",
+          "due_date": "2028-04-01",
+          "requirements": "Detailed end-of-year report and annual accounts",
+          "lead": "Deeksha Bhatia",
+          "status": "Upcoming"
+        }
+      ],
+      "needs_review": [
+        {
+          "item": "SJP installment 2",
+          "issue": "Briefing shows USD30,000 while total USD budget implies possible USD40,200 equivalent; note says confirm at receipt",
+          "action": "Confirm installment amount and conversion at receipt"
+        }
+      ],
+      "fy_income": {
+        "FY24": 0,
+        "FY25": 0,
+        "FY26": 81258.0,
+        "FY27": 0
+      },
       "total_income": 81258.0,
       "income_lines": [
         {
@@ -18962,8 +20124,12 @@
           "amount": 81258.0
         }
       ],
-      "fy26_expenses": 2400.0,
-      "fy27_expenses": 30837.5,
+      "fy_expenses": {
+        "FY24": 0,
+        "FY25": 0,
+        "FY26": 2400.0,
+        "FY27": 30837.5
+      },
       "total_expenses": 33237.5,
       "balance": 47162.5,
       "pct_used": 41.3,
@@ -18971,8 +20137,12 @@
         {
           "category": "Grants",
           "budget": 62492.24,
-          "fy26_actual": 0.0,
-          "fy27_actual": 30000.0,
+          "fy_actuals": {
+            "FY24": 0,
+            "FY25": 0,
+            "FY26": 0.0,
+            "FY27": 30000.0
+          },
           "total_actual": 30000.0,
           "variance": 32492.24,
           "pct_used": 48.0
@@ -18980,8 +20150,12 @@
         {
           "category": "Capacity Strengthening",
           "budget": 5847.76,
-          "fy26_actual": 0,
-          "fy27_actual": 0,
+          "fy_actuals": {
+            "FY24": 0,
+            "FY25": 0,
+            "FY26": 0,
+            "FY27": 0
+          },
           "total_actual": 0,
           "variance": 5847.76,
           "pct_used": 0.0
@@ -18989,8 +20163,12 @@
         {
           "category": "Communications",
           "budget": 0.0,
-          "fy26_actual": 0,
-          "fy27_actual": 0,
+          "fy_actuals": {
+            "FY24": 0,
+            "FY25": 0,
+            "FY26": 0,
+            "FY27": 0
+          },
           "total_actual": 0,
           "variance": 0.0,
           "pct_used": 0
@@ -18998,8 +20176,12 @@
         {
           "category": "Staffing",
           "budget": 12060.0,
-          "fy26_actual": 2010.0,
-          "fy27_actual": 837.5,
+          "fy_actuals": {
+            "FY24": 0,
+            "FY25": 0,
+            "FY26": 2010.0,
+            "FY27": 837.5
+          },
           "total_actual": 2847.5,
           "variance": 9212.5,
           "pct_used": 23.6
@@ -19007,8 +20189,12 @@
         {
           "category": "Travel",
           "budget": 0.0,
-          "fy26_actual": 0,
-          "fy27_actual": 0,
+          "fy_actuals": {
+            "FY24": 0,
+            "FY25": 0,
+            "FY26": 0,
+            "FY27": 0
+          },
           "total_actual": 0,
           "variance": 0.0,
           "pct_used": 0
@@ -19016,8 +20202,12 @@
         {
           "category": "Overhead / Other",
           "budget": 0.0,
-          "fy26_actual": 390.0,
-          "fy27_actual": 0,
+          "fy_actuals": {
+            "FY24": 0,
+            "FY25": 0,
+            "FY26": 390.0,
+            "FY27": 0
+          },
           "total_actual": 390.0,
           "variance": -390.0,
           "pct_used": 0
