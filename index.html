@@ -2,672 +2,748 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>EMpower Grant Dashboard</title>
+<link href="https://fonts.googleapis.com/css2?family=League+Gothic&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --teal: #1D9E75; --teal-light: #E1F5EE; --teal-dark: #0F6E56;
-    --navy: #1a2744; --navy-light: #243159;
-    --amber: #BA7517; --amber-light: #FAEEDA;
-    --red: #A32D2D; --red-light: #FCEBEB;
-    --green: #3B6D11; --green-light: #EAF3DE;
-    --gray: #5F5E5A; --gray-light: #F1EFE8; --border: #ddd;
-    --text: #1a1a1a; --text-muted: #666;
-    --white: #fff; --radius: 8px;
-    --shadow: 0 1px 4px rgba(0,0,0,.08);
-  }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-         font-size: 14px; color: var(--text); background: #f5f6fa; }
+/* ── EMpower Brand Palette ─────────────────────────────────────────────────── */
+:root{
+  /* Core blues */
+  --navy:    #002257;   /* darkest — body copy, headers */
+  --blue:    #005794;   /* main brand blue */
+  --mid:     #00427c;   /* deep accent */
+  --light-b: #6ca4e9;   /* light blue — links, accents */
+  --blue-l:  #e8f2fc;   /* light blue tint — hover, backgrounds */
 
-  /* ── Header ── */
-  .header {
-    background: var(--navy); color: white;
-    padding: 14px 24px; display: flex; align-items: center;
-    justify-content: space-between; position: sticky; top: 0; z-index: 100;
-    box-shadow: 0 2px 8px rgba(0,0,0,.2);
-  }
-  .header-left { display: flex; align-items: center; gap: 12px; }
-  .header-logo {
-    width: 36px; height: 36px; background: var(--teal);
-    border-radius: 50%; display: flex; align-items: center;
-    justify-content: center; font-weight: 700; font-size: 14px; color: white;
-  }
-  .header-title { font-size: 16px; font-weight: 600; }
-  .header-sub { font-size: 11px; opacity: .7; margin-top: 1px; }
-  .header-meta { font-size: 11px; opacity: .6; text-align: right; }
+  /* Core golds */
+  --gold:    #ffc955;   /* primary gold */
+  --gold-d:  #f2b842;   /* darker gold */
+  --gold-dk: #e9ab3a;   /* darkest gold */
 
-  /* ── Layout ── */
-  .layout { display: flex; height: calc(100vh - 56px); }
+  /* Neutrals */
+  --tan:     #f0f0e7;   /* off-white background */
+  --white:   #ffffff;
+  --border:  #d6dde8;
+  --text:    #002257;   /* dark blue for body copy — per brand guide */
+  --muted:   #5a6e8a;
 
-  /* ── Sidebar ── */
-  .sidebar {
-    width: 260px; flex-shrink: 0; background: var(--white);
-    border-right: 1px solid var(--border); overflow-y: auto;
-    display: flex; flex-direction: column;
-  }
-  .sidebar-search {
-    padding: 12px; border-bottom: 1px solid var(--border); position: sticky; top: 0;
-    background: white; z-index: 10;
-  }
-  .sidebar-search input {
-    width: 100%; padding: 7px 10px; border: 1px solid var(--border);
-    border-radius: var(--radius); font-size: 13px; outline: none;
-  }
-  .sidebar-search input:focus { border-color: var(--teal); }
-  .sidebar-group-label {
-    padding: 8px 12px 4px; font-size: 10px; font-weight: 600;
-    color: var(--text-muted); text-transform: uppercase; letter-spacing: .5px;
-    background: var(--gray-light); border-bottom: 1px solid var(--border);
-  }
-  .grant-item {
-    padding: 10px 12px; cursor: pointer; border-bottom: 1px solid #f0f0f0;
-    transition: background .15s;
-  }
-  .grant-item:hover { background: var(--teal-light); }
-  .grant-item.active { background: var(--teal-light); border-left: 3px solid var(--teal); }
-  .grant-item-name { font-size: 12px; font-weight: 500; color: var(--text); line-height: 1.3; }
-  .grant-item-meta { font-size: 11px; color: var(--text-muted); margin-top: 3px; display: flex; gap: 8px; }
-  .grant-item-bar { height: 3px; background: #e8e8e8; border-radius: 2px; margin-top: 5px; }
-  .grant-item-bar-fill { height: 100%; border-radius: 2px; background: var(--teal); }
-  .grant-item-bar-fill.warn { background: var(--amber); }
-  .grant-item-bar-fill.danger { background: var(--red); }
+  /* Secondary — sparingly */
+  --sunset:  #fc7366;
+  --lilac:   #a789e7;
 
-  /* ── Main ── */
-  .main { flex: 1; overflow-y: auto; padding: 20px; }
-  .no-grant {
-    display: flex; flex-direction: column; align-items: center;
-    justify-content: center; height: 60vh; color: var(--text-muted); gap: 12px;
-  }
-  .no-grant-icon { font-size: 48px; }
+  /* Status */
+  --green:   #1a6e3c;  --green-l: #e3f5ec;
+  --amber:   #a06400;  --amber-l: #fff3d6;
+  --red:     #b5190e;  --red-l:   #fdecea;
 
-  /* ── Grant header ── */
-  .grant-header {
-    background: var(--white); border-radius: var(--radius);
-    padding: 16px 20px; margin-bottom: 16px; border: 1px solid var(--border);
-    display: flex; align-items: flex-start; justify-content: space-between; gap: 16px;
-  }
-  .grant-title { font-size: 18px; font-weight: 600; color: var(--navy); }
-  .grant-subtitle { font-size: 12px; color: var(--text-muted); margin-top: 3px; }
-  .status-badge {
-    display: inline-block; padding: 3px 10px; border-radius: 20px;
-    font-size: 11px; font-weight: 600; margin-left: 10px;
-  }
-  .status-Active { background: var(--green-light); color: var(--green); }
-  .status-Ended  { background: var(--red-light); color: var(--red); }
+  --r: 6px;
+  --sh: 0 1px 3px rgba(0,34,87,.09);
+  --sh2: 0 2px 8px rgba(0,34,87,.13);
+}
 
-  /* ── Metric cards ── */
-  .metrics { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px,1fr)); gap: 12px; margin-bottom: 16px; }
-  .metric-card {
-    background: var(--white); border: 1px solid var(--border);
-    border-radius: var(--radius); padding: 14px 16px; box-shadow: var(--shadow);
-  }
-  .metric-label { font-size: 11px; color: var(--text-muted); text-transform: uppercase; letter-spacing: .4px; }
-  .metric-value { font-size: 22px; font-weight: 600; margin-top: 4px; color: var(--navy); }
-  .metric-value.green { color: var(--green); }
-  .metric-value.amber { color: var(--amber); }
-  .metric-value.red   { color: var(--red); }
-  .metric-sub { font-size: 11px; color: var(--text-muted); margin-top: 3px; }
-  .metric-bar { height: 4px; background: #e8e8e8; border-radius: 2px; margin-top: 8px; overflow: hidden; }
-  .metric-bar-fill { height: 100%; border-radius: 2px; transition: width .4s; }
+/* ── Reset & base ── */
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Open Sans',sans-serif;font-size:14px;color:var(--text);background:var(--tan);line-height:1.5}
 
-  /* ── Tabs ── */
-  .tabs { display: flex; gap: 0; border-bottom: 2px solid var(--border); margin-bottom: 16px; }
-  .tab-btn {
-    padding: 9px 18px; font-size: 13px; font-weight: 500; cursor: pointer;
-    border: none; background: none; color: var(--text-muted);
-    border-bottom: 2px solid transparent; margin-bottom: -2px; transition: color .15s;
-  }
-  .tab-btn:hover { color: var(--teal); }
-  .tab-btn.active { color: var(--teal); border-bottom-color: var(--teal); }
-  .tab-content { display: none; }
-  .tab-content.active { display: block; }
+/* ── Header ── */
+.hdr{
+  background:var(--navy);color:var(--white);
+  padding:0 24px;height:58px;
+  display:flex;align-items:center;justify-content:space-between;
+  position:sticky;top:0;z-index:200;
+  box-shadow:0 2px 10px rgba(0,0,0,.25);
+}
+.hdr-l{display:flex;align-items:center;gap:14px}
+.logo{
+  width:38px;height:38px;background:var(--gold);
+  border-radius:4px;display:flex;align-items:center;justify-content:center;
+  font-family:'League Gothic',sans-serif;font-size:20px;
+  color:var(--navy);letter-spacing:-.5px;flex-shrink:0;
+}
+.hdr-wordmark{font-family:'League Gothic',sans-serif;font-size:22px;letter-spacing:.5px;color:var(--white)}
+.hdr-wordmark span{color:var(--gold)}
+.hdr-sub{font-size:11px;color:rgba(255,255,255,.55);margin-top:1px;font-weight:400}
+.hdr-meta{font-size:11px;color:rgba(255,255,255,.5);text-align:right}
 
-  /* ── Cards ── */
-  .card {
-    background: var(--white); border: 1px solid var(--border);
-    border-radius: var(--radius); padding: 16px 20px;
-    margin-bottom: 16px; box-shadow: var(--shadow);
-  }
-  .card-title {
-    font-size: 12px; font-weight: 600; color: var(--text-muted);
-    text-transform: uppercase; letter-spacing: .4px; margin-bottom: 14px;
-    padding-bottom: 10px; border-bottom: 1px solid var(--border);
-  }
+/* ── Layout ── */
+.layout{display:flex;height:calc(100vh - 58px)}
 
-  /* ── Info grid ── */
-  .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 24px; }
-  .info-row { }
-  .info-label { font-size: 11px; color: var(--text-muted); margin-bottom: 2px; }
-  .info-value { font-size: 13px; color: var(--text); font-weight: 500; line-height: 1.4; }
-  .info-value.full { grid-column: 1 / -1; }
+/* ── Sidebar ── */
+.sidebar{
+  width:272px;flex-shrink:0;background:var(--white);
+  border-right:2px solid var(--blue);
+  overflow-y:auto;display:flex;flex-direction:column;
+}
+.sb-top{
+  padding:10px;border-bottom:1px solid var(--border);
+  position:sticky;top:0;background:var(--white);z-index:10;
+  display:flex;flex-direction:column;gap:8px;
+}
+.sb-top input{
+  width:100%;padding:7px 11px;
+  border:1px solid var(--border);border-radius:var(--r);
+  font-size:13px;color:var(--text);font-family:'Open Sans',sans-serif;outline:none;
+  background:var(--tan);
+}
+.sb-top input:focus{border-color:var(--blue);background:var(--white)}
+.sb-nav{display:flex;gap:6px}
+.sb-btn{
+  flex:1;padding:6px 4px;font-size:12px;font-weight:600;
+  border:1.5px solid var(--border);border-radius:var(--r);
+  background:var(--white);cursor:pointer;color:var(--muted);
+  font-family:'Open Sans',sans-serif;transition:all .15s;
+}
+.sb-btn.active{background:var(--blue);color:var(--white);border-color:var(--blue)}
+.sb-btn:hover:not(.active){border-color:var(--blue);color:var(--blue)}
 
-  /* ── Budget table ── */
-  .bv-table { width: 100%; border-collapse: collapse; font-size: 13px; }
-  .bv-table th {
-    text-align: left; padding: 8px 10px; font-size: 11px;
-    color: var(--text-muted); font-weight: 600; text-transform: uppercase;
-    border-bottom: 1px solid var(--border); background: var(--gray-light);
-  }
-  .bv-table th.right, .bv-table td.right { text-align: right; }
-  .bv-table td { padding: 9px 10px; border-bottom: 1px solid #f0f0f0; }
-  .bv-table tr:last-child td { border-bottom: none; font-weight: 600; background: var(--gray-light); }
-  .bv-table tr:hover td { background: var(--teal-light); }
-  .var-pos { color: var(--green); }
-  .var-neg { color: var(--red); }
-  .mini-bar { height: 6px; background: #e8e8e8; border-radius: 3px; min-width: 80px; overflow: hidden; }
-  .mini-bar-fill { height: 100%; border-radius: 3px; }
+/* Sidebar group label */
+.grp-lbl{
+  padding:8px 12px 4px;font-size:10px;font-weight:700;
+  color:var(--white);text-transform:uppercase;letter-spacing:1px;
+  background:var(--navy);border-bottom:2px solid var(--gold);
+  font-family:'League Gothic',sans-serif;font-size:13px;letter-spacing:1.5px;
+}
 
-  /* ── Reporting table ── */
-  .rep-table { width: 100%; border-collapse: collapse; font-size: 13px; }
-  .rep-table th {
-    text-align: left; padding: 8px 10px; font-size: 11px;
-    font-weight: 600; color: var(--text-muted); text-transform: uppercase;
-    border-bottom: 1px solid var(--border); background: var(--gray-light);
-  }
-  .rep-table td { padding: 9px 10px; border-bottom: 1px solid #f0f0f0; vertical-align: top; }
-  .rep-table tr:last-child td { border-bottom: none; }
+/* Grant item */
+.gi{padding:10px 12px 8px;cursor:pointer;border-bottom:1px solid var(--tan);transition:background .12s;position:relative}
+.gi:hover{background:var(--blue-l)}
+.gi.active{background:var(--blue-l);border-left:4px solid var(--blue)}
+.gi-entity{
+  font-family:'League Gothic',sans-serif;font-size:17px;font-weight:400;
+  color:var(--blue);letter-spacing:.5px;line-height:1.1;margin-bottom:2px;
+  text-transform:uppercase;
+}
+.gi-name{font-size:11px;color:var(--text);line-height:1.3;font-weight:400}
+.gi-meta{font-size:10px;color:var(--muted);margin-top:4px;display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+.gi-bar{height:3px;background:var(--border);border-radius:2px;margin-top:5px;overflow:hidden}
+.gi-fill{height:100%;border-radius:2px;transition:width .4s}
+.gi-alert{font-size:10px;color:var(--sunset);font-weight:700}
 
-  /* ── GL lines table ── */
-  .gl-controls { display: flex; gap: 10px; margin-bottom: 12px; align-items: center; flex-wrap: wrap; }
-  .gl-controls select, .gl-controls input {
-    padding: 6px 10px; border: 1px solid var(--border); border-radius: var(--radius);
-    font-size: 13px; outline: none;
-  }
-  .gl-controls select:focus, .gl-controls input:focus { border-color: var(--teal); }
-  .gl-wrap { overflow-x: auto; }
-  .gl-table { width: 100%; border-collapse: collapse; font-size: 12px; min-width: 700px; }
-  .gl-table th {
-    text-align: left; padding: 7px 10px; font-size: 11px; font-weight: 600;
-    color: var(--text-muted); text-transform: uppercase;
-    border-bottom: 1px solid var(--border); background: var(--gray-light);
-    position: sticky; top: 0;
-  }
-  .gl-table th.right, .gl-table td.right { text-align: right; }
-  .gl-table td { padding: 7px 10px; border-bottom: 1px solid #f0f0f0; }
-  .gl-table tr:hover td { background: var(--teal-light); }
-  .gl-count { font-size: 12px; color: var(--text-muted); margin-left: auto; }
-  .cat-pill {
-    display: inline-block; padding: 2px 8px; border-radius: 10px;
-    font-size: 11px; font-weight: 500; white-space: nowrap;
-  }
-  .cat-Grants                { background:#EAF3DE; color:#3B6D11; }
-  .cat-Capacity              { background:#E1F5EE; color:#0F6E56; }
-  .cat-Capacity-Strengthening{ background:#E1F5EE; color:#0F6E56; }
-  .cat-Communications        { background:#E6F1FB; color:#185FA5; }
-  .cat-Staffing              { background:#EEEDFE; color:#3C3489; }
-  .cat-Travel                { background:#FAEEDA; color:#854F0B; }
-  .cat-Overhead              { background:#F1EFE8; color:#444441; }
-  .fy-pill { display:inline-block; padding:2px 7px; border-radius:10px; font-size:11px; }
-  .fy-FY26 { background:#E6F1FB; color:#185FA5; }
-  .fy-FY27 { background:#FAEEDA; color:#854F0B; }
-  .fy-Other{ background:#F1EFE8; color:#888; }
+/* ── Main ── */
+.main{flex:1;overflow-y:auto;padding:20px;background:var(--tan)}
+.empty-main{display:flex;flex-direction:column;align-items:center;justify-content:center;height:60vh;color:var(--muted);gap:12px}
 
-  /* ── Income table ── */
-  .inc-table { width:100%; border-collapse:collapse; font-size:13px; }
-  .inc-table th {
-    text-align:left; padding:8px 10px; font-size:11px; font-weight:600;
-    color:var(--text-muted); text-transform:uppercase;
-    border-bottom:1px solid var(--border); background:var(--gray-light);
-  }
-  .inc-table th.right, .inc-table td.right { text-align:right; }
-  .inc-table td { padding:8px 10px; border-bottom:1px solid #f0f0f0; }
-  .inc-table tr:last-child td { border-bottom:none; font-weight:600; background:var(--gray-light); }
+/* ── Grant header block ── */
+.gh{
+  background:var(--navy);color:var(--white);
+  border-radius:var(--r);padding:16px 20px;margin-bottom:16px;
+  display:flex;align-items:flex-start;justify-content:space-between;gap:16px;
+  box-shadow:var(--sh2);
+}
+.gh-entity{
+  font-family:'League Gothic',sans-serif;font-size:28px;
+  color:var(--gold);letter-spacing:1px;line-height:1;margin-bottom:4px;
+  text-transform:uppercase;
+}
+.gh-name{font-size:15px;font-weight:600;color:var(--white);line-height:1.3}
+.gh-sub{font-size:12px;color:rgba(255,255,255,.6);margin-top:3px}
+.gh-r{text-align:right;font-size:12px;color:rgba(255,255,255,.7);flex-shrink:0}
+.badge{display:inline-block;padding:3px 10px;border-radius:20px;font-size:11px;font-weight:700;margin-left:8px;font-family:'Open Sans',sans-serif}
+.Active{background:var(--green-l);color:var(--green)}
+.Ended{background:var(--red-l);color:var(--red)}
+.flag-review{background:var(--amber-l);border:1px solid var(--gold-d);color:var(--amber);padding:8px 14px;border-radius:var(--r);font-size:12px;margin-bottom:12px;display:flex;gap:8px;align-items:flex-start}
 
-  /* ── FY toggle bar ── */
-  .fy-toggle { display:flex; gap:8px; margin-bottom:14px; }
-  .fy-btn {
-    padding:5px 14px; border-radius:20px; border:1px solid var(--border);
-    background:white; font-size:12px; cursor:pointer; font-weight:500;
-    color:var(--text-muted); transition:all .15s;
-  }
-  .fy-btn.active { background:var(--teal); color:white; border-color:var(--teal); }
+/* ── Metric cards ── */
+.metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(148px,1fr));gap:10px;margin-bottom:16px}
+.mc{
+  background:var(--white);border:1px solid var(--border);
+  border-radius:var(--r);padding:13px 15px;box-shadow:var(--sh);
+  border-top:3px solid var(--blue);
+}
+.mc.gold-top{border-top-color:var(--gold)}
+.mc.green-top{border-top-color:var(--green)}
+.mc.amber-top{border-top-color:var(--gold-d)}
+.mc.red-top{border-top-color:var(--sunset)}
+.mc-lbl{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.6px;font-weight:700}
+.mc-val{font-family:'League Gothic',sans-serif;font-size:26px;font-weight:400;margin-top:3px;color:var(--navy);letter-spacing:.5px}
+.mc-val.green{color:var(--green)}.mc-val.amber{color:var(--amber)}.mc-val.red{color:var(--red)}
+.mc-val.gold{color:var(--gold-dk)}
+.mc-sub{font-size:11px;color:var(--muted);margin-top:2px}
+.mc-bar{height:4px;background:var(--border);border-radius:2px;margin-top:8px;overflow:hidden}
+.mc-fill{height:100%;border-radius:2px;transition:width .5s}
 
-  /* ── Utilities ── */
-  .text-right { text-align:right; }
-  .text-muted { color:var(--text-muted); }
-  .empty-state { text-align:center; padding:32px; color:var(--text-muted); font-size:13px; }
+/* ── Tabs ── */
+.tabs{
+  display:flex;border-bottom:2px solid var(--navy);
+  margin-bottom:16px;overflow-x:auto;background:var(--white);
+  border-radius:var(--r) var(--r) 0 0;box-shadow:var(--sh);
+}
+.tb{
+  padding:10px 16px;font-size:13px;font-weight:600;cursor:pointer;
+  border:none;background:none;color:var(--muted);
+  border-bottom:3px solid transparent;margin-bottom:-2px;
+  white-space:nowrap;font-family:'Open Sans',sans-serif;transition:all .15s;
+}
+.tb:hover{color:var(--blue)}
+.tb.active{color:var(--navy);border-bottom-color:var(--gold);background:var(--blue-l)}
+.tc{display:none}.tc.active{display:block}
+
+/* ── Card ── */
+.card{
+  background:var(--white);border:1px solid var(--border);
+  border-radius:var(--r);padding:16px 20px;margin-bottom:14px;
+  box-shadow:var(--sh);
+}
+.card-title{
+  font-family:'League Gothic',sans-serif;font-size:16px;letter-spacing:.5px;
+  color:var(--navy);margin-bottom:14px;padding-bottom:10px;
+  border-bottom:2px solid var(--gold);
+  display:flex;align-items:center;justify-content:space-between;
+  text-transform:uppercase;
+}
+.card-title .ct-r{font-family:'Open Sans',sans-serif;font-size:12px;text-transform:none;letter-spacing:0;font-weight:600;color:var(--text)}
+
+/* ── Info grid ── */
+.ig{display:grid;grid-template-columns:1fr 1fr;gap:12px 28px}
+.ig-lbl{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;font-weight:700;margin-bottom:2px}
+.ig-val{font-size:13px;font-weight:600;color:var(--text);line-height:1.4}
+
+/* ── Tables ── */
+table{width:100%;border-collapse:collapse;font-size:13px}
+th{
+  text-align:left;padding:9px 11px;font-size:10px;color:var(--white);
+  font-weight:700;text-transform:uppercase;letter-spacing:.6px;
+  background:var(--navy);white-space:nowrap;
+}
+td{padding:9px 11px;border-bottom:1px solid var(--tan);vertical-align:top;color:var(--text)}
+.tfoot td{border-bottom:none;font-weight:700;background:var(--navy);color:var(--white);border-top:2px solid var(--gold)}
+tbody tr:hover td{background:var(--blue-l)}
+.r{text-align:right}
+.pos{color:var(--green);font-weight:700}
+.neg{color:var(--red);font-weight:700}
+
+/* Mini bar */
+.mb{height:6px;background:var(--border);border-radius:3px;min-width:60px;overflow:hidden}
+.mb-fill{height:100%;border-radius:3px}
+
+/* Pills */
+.pill{display:inline-block;padding:2px 9px;border-radius:3px;font-size:11px;font-weight:700;white-space:nowrap;font-family:'Open Sans',sans-serif}
+.p-Grants{background:var(--green-l);color:var(--green)}
+.p-Capacity{background:var(--blue-l);color:var(--mid)}
+.p-Communications{background:#e8e3f8;color:#5a2fa0}
+.p-Staffing{background:#fef3e2;color:#7a4800}
+.p-Travel{background:var(--amber-l);color:var(--amber)}
+.p-Overhead{background:var(--tan);color:var(--muted)}
+.p-FY24,.p-Pre-FY24{background:var(--tan);color:var(--muted)}
+.p-FY25{background:#e0eeff;color:var(--mid)}
+.p-FY26{background:var(--blue-l);color:var(--blue)}
+.p-FY27{background:var(--amber-l);color:var(--amber)}
+.p-Future{background:var(--amber-l);color:var(--amber)}
+.p-Upcoming{background:var(--amber-l);color:var(--amber)}
+.p-Received,.p-received{background:var(--green-l);color:var(--green)}
+.p-next{background:var(--gold);color:var(--navy)}
+
+/* GL controls */
+.gl-ctrl{display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap;align-items:center}
+.gl-ctrl select,.gl-ctrl input{
+  padding:6px 10px;border:1px solid var(--border);border-radius:var(--r);
+  font-size:13px;color:var(--text);font-family:'Open Sans',sans-serif;outline:none;
+  background:var(--white);
+}
+.gl-ctrl select:focus,.gl-ctrl input:focus{border-color:var(--blue)}
+.ow{overflow-x:auto}
+
+/* Section dividers for payments/reporting */
+.section-hdr{
+  font-family:'League Gothic',sans-serif;font-size:18px;color:var(--navy);
+  text-transform:uppercase;letter-spacing:1px;margin-bottom:10px;
+  padding-bottom:6px;border-bottom:2px solid var(--gold);
+}
 </style>
 </head>
 <body>
 
-<div class="header">
-  <div class="header-left">
-    <div class="header-logo">EM</div>
+<div class="hdr">
+  <div class="hdr-l">
+    <div class="logo">EM</div>
     <div>
-      <div class="header-title">EMpower Grant Dashboard</div>
-      <div class="header-sub">Finance · Restricted Fund Intelligence</div>
+      <div class="hdr-wordmark"><span>EM</span>power Grant Dashboard</div>
+      <div class="hdr-sub">Finance · Restricted Fund Intelligence</div>
     </div>
   </div>
-  <div class="header-meta" id="header-meta">Loading...</div>
+  <div class="hdr-meta" id="hdr-meta">Loading…</div>
 </div>
 
 <div class="layout">
-  <!-- ── Sidebar ── -->
   <div class="sidebar">
-    <div class="sidebar-search">
-      <input type="text" id="search-input" placeholder="Search grants..." oninput="filterGrants()">
+    <div class="sb-top">
+      <input type="text" id="sb-search" placeholder="Search grants…" oninput="filterList()">
+      <div class="sb-nav">
+        <button class="sb-btn active" onclick="showView('grants',this)">Grants</button>
+        <button class="sb-btn" onclick="showView('summary',this)">Portfolio</button>
+        <button class="sb-btn" onclick="showView('deadlines',this)">Deadlines</button>
+      </div>
     </div>
     <div id="grant-list"></div>
   </div>
 
-  <!-- ── Main content ── -->
-  <div class="main" id="main-content">
-    <div class="no-grant">
-      <div class="no-grant-icon">📊</div>
-      <div style="font-size:16px;font-weight:500;color:#333">Select a grant</div>
-      <div>Choose a grant from the list to view details</div>
+  <div class="main" id="main">
+    <div class="empty-main">
+      <div style="font-size:52px">📊</div>
+      <div style="font-family:'League Gothic',sans-serif;font-size:28px;color:var(--navy);letter-spacing:1px">SELECT A GRANT</div>
+      <div style="color:var(--muted)">or view <strong>Portfolio</strong> / <strong>Deadlines</strong> in the sidebar</div>
     </div>
   </div>
 </div>
 
 <script>
-// ── Data ─────────────────────────────────────────────────────────────────────
-let ALL_GRANTS = [];
-let CURRENT_GRANT = null;
-let CURRENT_FY = 'all';
+let DATA=[],CURRENT=null,VIEW='grants';
+const FYS=['FY24','FY25','FY26','FY27'];
 
-// ── Formatters ────────────────────────────────────────────────────────────────
-const fmt = n => n == null ? '—' : '$' + Math.round(n).toLocaleString();
-const fmtPct = p => p == null ? '—' : p.toFixed(1) + '%';
-const fmtDate = s => {
-  if (!s) return '—';
-  const d = new Date(s + 'T00:00:00');
-  return d.toLocaleDateString('en-GB', {day:'2-digit', month:'short', year:'numeric'});
-};
-const daysColor = d => d == null ? '' : d < 90 ? 'red' : d < 180 ? 'amber' : 'green';
-const barColor  = p => p >= 90 ? '#A32D2D' : p >= 75 ? '#BA7517' : '#1D9E75';
-const catClass  = c => 'cat-' + (c||'').replace(/\s*\/\s*Other/,'').replace(/\s+/g,'-');
+const fmt=n=>n==null?'—':'$'+Math.round(n).toLocaleString();
+const fmtPct=p=>p==null?'—':p.toFixed(1)+'%';
+const fmtDate=s=>{if(!s||s==='—')return'—';
+  const d=new Date(s+'T00:00:00');
+  return isNaN(d)?s:d.toLocaleDateString('en-GB',{day:'2-digit',month:'short',year:'numeric'})};
+const barCol=p=>p>=90?'#b5190e':p>=75?'#a06400':'#005794';
+const pillCat=c=>'p-'+(c||'').split(/[\s\/]/)[0];
+const pillFY=f=>'p-'+f.replace(/\s/g,'-');
+const daysTo=s=>{if(!s)return null;const d=new Date(s+'T00:00:00');if(isNaN(d))return null;return Math.round((d-new Date())/(864e5))};
 
-// ── Load data ─────────────────────────────────────────────────────────────────
-async function loadData() {
-  try {
-    const res = await fetch('grants_data.json');
-    if (!res.ok) throw new Error(res.statusText);
-    const data = await res.json();
-    ALL_GRANTS = data.grants || [];
-    document.getElementById('header-meta').textContent =
-      `Updated ${data.generated} · FY26: ${data.fy26_period}`;
-    buildSidebar(ALL_GRANTS);
-  } catch(e) {
-    document.getElementById('header-meta').textContent = 'Error loading data';
-    document.getElementById('main-content').innerHTML =
-      `<div class="no-grant">
-         <div class="no-grant-icon">⚠️</div>
-         <div style="font-size:15px;font-weight:500">Could not load grants_data.json</div>
-         <div>Make sure grants_data.json is in the same folder as index.html</div>
-         <div style="margin-top:8px;font-size:12px;color:#999">${e.message}</div>
-       </div>`;
+async function loadData(){
+  try{
+    const r=await fetch('grants_data.json');
+    if(!r.ok)throw new Error(r.statusText);
+    const d=await r.json();
+    DATA=d.grants||[];
+    document.getElementById('hdr-meta').textContent=`Updated ${d.generated} · ${DATA.length} grants`;
+    buildList(DATA);
+  }catch(e){
+    document.getElementById('hdr-meta').textContent='Error';
+    document.getElementById('main').innerHTML=
+      `<div class="empty-main"><div style="font-size:40px">⚠️</div>
+       <div>Could not load grants_data.json</div><div style="font-size:12px;color:var(--muted)">${e.message}</div></div>`;
   }
 }
 
-// ── Sidebar ───────────────────────────────────────────────────────────────────
-function buildSidebar(grants) {
-  const groups = {};
-  grants.forEach(g => {
-    const eg = g.entity_group || g.entity || 'Other';
-    if (!groups[eg]) groups[eg] = [];
-    groups[eg].push(g);
-  });
+function showView(v,btn){
+  VIEW=v;
+  document.querySelectorAll('.sb-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  if(v==='summary')      renderSummary();
+  else if(v==='deadlines') renderDeadlines();
+  else if(CURRENT)         renderGrant(CURRENT);
+  else document.getElementById('main').innerHTML=`<div class="empty-main"><div style="font-size:52px">📊</div><div style="font-family:'League Gothic',sans-serif;font-size:28px;color:var(--navy)">SELECT A GRANT</div></div>`;
+}
 
-  let html = '';
-  Object.keys(groups).sort().forEach(grp => {
-    html += `<div class="sidebar-group-label">${grp}</div>`;
-    groups[grp].forEach(g => {
-      const pct = g.pct_used || 0;
-      const fillColor = pct >= 90 ? 'danger' : pct >= 75 ? 'warn' : '';
-      html += `
-        <div class="grant-item" id="item-${g.code}" onclick="selectGrant('${g.code}')">
-          <div class="grant-item-name">${g.name}</div>
-          <div class="grant-item-meta">
-            <span>${g.code}</span>
-            <span>${fmtPct(pct)} spent</span>
-            <span class="status-badge status-${g.grant_status}">${g.grant_status}</span>
-          </div>
-          <div class="grant-item-bar">
-            <div class="grant-item-bar-fill ${fillColor}" style="width:${Math.min(pct,100)}%"></div>
-          </div>
-        </div>`;
+/* ── Sidebar ── */
+function buildList(grants){
+  const groups={};
+  grants.forEach(g=>{const eg=g.entity_group||g.entity||'Other';(groups[eg]=groups[eg]||[]).push(g)});
+  let h='';
+  Object.keys(groups).sort().forEach(grp=>{
+    h+=`<div class="grp-lbl">${grp}</div>`;
+    groups[grp].forEach(g=>{
+      const p=g.pct_used||0,fc=barCol(p);
+      const nr=g.next_report_due?daysTo(g.next_report_due):null;
+      const ni=g.next_install_due&&!['None','Condition-based',''].includes(g.next_install_due)?daysTo(g.next_install_due):null;
+      const alert=(nr!=null&&nr<60)||(ni!=null&&ni<60);
+      h+=`<div class="gi" id="gi-${g.code}" onclick="selectGrant('${g.code}')">
+        <div class="gi-entity">${g.entity||g.entity_group}</div>
+        <div class="gi-name">${g.name}</div>
+        <div class="gi-meta">
+          <span style="font-weight:700">${g.code}</span>
+          <span>${fmtPct(p)} spent</span>
+          <span class="badge ${g.grant_status}">${g.grant_status}</span>
+          ${alert?`<span class="gi-alert">⚡ Due soon</span>`:''}
+        </div>
+        <div class="gi-bar"><div class="gi-fill" style="width:${Math.min(p,100)}%;background:${fc}"></div></div>
+      </div>`;
     });
   });
-  document.getElementById('grant-list').innerHTML = html;
+  document.getElementById('grant-list').innerHTML=h;
+  if(CURRENT){const el=document.getElementById('gi-'+CURRENT.code);if(el)el.classList.add('active');}
 }
 
-function filterGrants() {
-  const q = document.getElementById('search-input').value.toLowerCase();
-  const filtered = q
-    ? ALL_GRANTS.filter(g => g.name.toLowerCase().includes(q) ||
-                              g.code.toLowerCase().includes(q) ||
-                              (g.lead||'').toLowerCase().includes(q))
-    : ALL_GRANTS;
-  buildSidebar(filtered);
-  if (CURRENT_GRANT) {
-    const el = document.getElementById('item-' + CURRENT_GRANT.code);
-    if (el) el.classList.add('active');
-  }
+function filterList(){
+  const q=document.getElementById('sb-search').value.toLowerCase();
+  buildList(q?DATA.filter(g=>g.name.toLowerCase().includes(q)||g.code.toLowerCase().includes(q)||
+    (g.lead||'').toLowerCase().includes(q)||(g.entity||'').toLowerCase().includes(q)):DATA);
 }
 
-// ── Select grant ─────────────────────────────────────────────────────────────
-function selectGrant(code) {
-  CURRENT_GRANT = ALL_GRANTS.find(g => g.code === code);
-  if (!CURRENT_GRANT) return;
-  document.querySelectorAll('.grant-item').forEach(el => el.classList.remove('active'));
-  const el = document.getElementById('item-' + code);
-  if (el) el.classList.add('active');
-  CURRENT_FY = 'all';
-  renderGrant(CURRENT_GRANT);
+function selectGrant(code){
+  CURRENT=DATA.find(g=>g.code===code);if(!CURRENT)return;
+  VIEW='grants';
+  document.querySelectorAll('.sb-btn').forEach((b,i)=>b.classList.toggle('active',i===0));
+  document.querySelectorAll('.gi').forEach(el=>el.classList.remove('active'));
+  const el=document.getElementById('gi-'+code);if(el)el.classList.add('active');
+  renderGrant(CURRENT);
 }
 
-// ── Render grant ──────────────────────────────────────────────────────────────
-function renderGrant(g) {
-  const daysLeft = g.days_remaining;
-  const fy26exp  = g.fy26_expenses || 0;
-  const fy27exp  = g.fy27_expenses || 0;
-  const totexp   = g.total_expenses || 0;
-  const totinc   = g.total_income   || 0;
-  const budget   = g.budget_total   || 0;
-  const balance  = g.balance || (budget - totexp);
-  const pct      = g.pct_used || 0;
+/* ── Grant view ── */
+function renderGrant(g){
+  const fy24e=g.fy_expenses?.FY24||0,fy25e=g.fy_expenses?.FY25||0;
+  const fy26e=g.fy_expenses?.FY26||0,fy27e=g.fy_expenses?.FY27||0;
+  const tot=g.total_expenses||0,inc=g.total_income||0;
+  const bud=g.budget_total||0,bal=g.balance||0,pct=g.pct_used||0;
+  const dl=g.days_remaining;
+  const dlCol=dl==null?'':dl<90?'var(--red)':dl<180?'var(--amber)':'rgba(255,255,255,.7)';
+  const nrd=g.next_report_due,nrdDays=daysTo(nrd);
+  const nid=g.next_install_due;
+  const reviews=g.needs_review||[];
 
-  document.getElementById('main-content').innerHTML = `
-    <!-- Grant header -->
-    <div class="grant-header">
-      <div>
-        <div class="grant-title">
-          ${g.name}
-          <span class="status-badge status-${g.grant_status}">${g.grant_status}</span>
-        </div>
-        <div class="grant-subtitle">${g.code} · ${g.entity} · Lead: ${g.lead || '—'}</div>
-      </div>
-      <div style="text-align:right;font-size:12px;color:var(--text-muted)">
-        <div>${fmtDate(g.start_date)} – ${fmtDate(g.end_date)}</div>
-        ${daysLeft != null ? `<div style="margin-top:3px;color:${daysLeft<90?'var(--red)':daysLeft<180?'var(--amber)':'var(--green)'}">
-          ${daysLeft > 0 ? daysLeft + ' days remaining' : Math.abs(daysLeft) + ' days past end'}</div>` : ''}
-      </div>
+  document.getElementById('main').innerHTML=`
+  ${reviews.length?`<div class="flag-review">⚠️ <div><strong>Data review needed:</strong> ${reviews.map(r=>r.issue).join(' · ')}</div></div>`:''}
+
+  <div class="gh">
+    <div>
+      <div class="gh-entity">${g.entity||g.entity_group}</div>
+      <div class="gh-name">${g.name}<span class="badge ${g.grant_status}">${g.grant_status}</span></div>
+      <div class="gh-sub">${g.code} · Lead: ${g.lead||'—'} ${g.lead_email?'· '+g.lead_email:''}</div>
     </div>
-
-    <!-- Metric cards -->
-    <div class="metrics">
-      <div class="metric-card">
-        <div class="metric-label">Total Award (Budget)</div>
-        <div class="metric-value">${fmt(budget)}</div>
-        <div class="metric-sub">${g.orig_currency !== 'USD' ? g.orig_currency + ' original' : 'USD'}</div>
-      </div>
-      <div class="metric-card">
-        <div class="metric-label">Income Received</div>
-        <div class="metric-value green">${fmt(totinc)}</div>
-        <div class="metric-sub">USD (Sage converted)</div>
-      </div>
-      <div class="metric-card">
-        <div class="metric-label">FY26 Expenses</div>
-        <div class="metric-value ${pct>=90?'red':pct>=75?'amber':''}">${fmt(fy26exp)}</div>
-        <div class="metric-sub">Jul 2025 – Jun 2026</div>
-      </div>
-      <div class="metric-card">
-        <div class="metric-label">FY27 Expenses</div>
-        <div class="metric-value">${fmt(fy27exp)}</div>
-        <div class="metric-sub">Jul 2026 – Jun 2027</div>
-      </div>
-      <div class="metric-card">
-        <div class="metric-label">Total Spent</div>
-        <div class="metric-value ${pct>=90?'red':pct>=75?'amber':''}">${fmt(totexp)}</div>
-        <div class="metric-sub">${fmtPct(pct)} of budget</div>
-        <div class="metric-bar"><div class="metric-bar-fill"
-          style="width:${Math.min(pct,100)}%;background:${barColor(pct)}"></div></div>
-      </div>
-      <div class="metric-card">
-        <div class="metric-label">Remaining Budget</div>
-        <div class="metric-value ${balance<0?'red':balance<budget*.1?'amber':'green'}">${fmt(balance)}</div>
-        <div class="metric-sub">${fmtPct(100-pct)} unspent</div>
-      </div>
+    <div class="gh-r">
+      <div style="font-weight:700;color:var(--gold)">${fmtDate(g.start_date)} – ${fmtDate(g.end_date)}</div>
+      ${dl!=null?`<div style="color:${dlCol};margin-top:4px">${dl>0?dl+' days remaining':Math.abs(dl)+' days past end'}</div>`:''}
+      ${nrd?`<div style="color:${nrdDays!=null&&nrdDays<60?'#fc7366':'var(--gold)'};margin-top:4px">📋 Report due: ${fmtDate(nrd)}${nrdDays!=null?' ('+nrdDays+'d)':''}</div>`:''}
+      ${g.next_install_amt>0?`<div style="color:var(--gold);margin-top:4px">💰 Next: ${fmt(g.next_install_amt)} — ${nid&&!['None',''].includes(nid)?fmtDate(nid.length===10?nid:null)||nid:'TBC'}</div>`:''}
+      ${g.total_outstanding>0?`<div style="color:rgba(255,255,255,.55);margin-top:2px;font-size:11px">Outstanding: ${fmt(g.total_outstanding)}</div>`:''}
     </div>
+  </div>
 
-    <!-- Tabs -->
-    <div class="tabs">
-      <button class="tab-btn active" onclick="switchTab('snapshot',this)">Snapshot</button>
-      <button class="tab-btn" onclick="switchTab('agreement',this)">Grant Agreement</button>
-      <button class="tab-btn" onclick="switchTab('budget',this)">Budget vs Actuals</button>
-      <button class="tab-btn" onclick="switchTab('income',this)">Income</button>
-      <button class="tab-btn" onclick="switchTab('gl',this)">GL Lines</button>
+  <div class="metrics">
+    <div class="mc gold-top">
+      <div class="mc-lbl">Total Award</div>
+      <div class="mc-val gold">${fmt(bud)}</div>
+      <div class="mc-sub">${g.orig_currency!=='USD'?g.orig_currency+' original':'USD'}</div>
     </div>
-
-    <!-- TAB: Snapshot -->
-    <div id="tab-snapshot" class="tab-content active">
-      ${renderSnapshot(g)}
+    <div class="mc green-top">
+      <div class="mc-lbl">Income Received</div>
+      <div class="mc-val green">${fmt(inc)}</div>
+      <div class="mc-sub">USD · Sage converted</div>
     </div>
-
-    <!-- TAB: Agreement -->
-    <div id="tab-agreement" class="tab-content">
-      ${renderAgreement(g)}
+    ${fy24e>0?`<div class="mc"><div class="mc-lbl">FY24 Expenses</div><div class="mc-val">${fmt(fy24e)}</div><div class="mc-sub">Jul 23 – Jun 24</div></div>`:''}
+    ${fy25e>0?`<div class="mc"><div class="mc-lbl">FY25 Expenses</div><div class="mc-val">${fmt(fy25e)}</div><div class="mc-sub">Jul 24 – Jun 25</div></div>`:''}
+    <div class="mc">
+      <div class="mc-lbl">FY26 Expenses</div>
+      <div class="mc-val">${fmt(fy26e)}</div>
+      <div class="mc-sub">Jul 25 – Jun 26</div>
     </div>
-
-    <!-- TAB: Budget vs Actuals -->
-    <div id="tab-budget" class="tab-content">
-      ${renderBudget(g)}
+    <div class="mc">
+      <div class="mc-lbl">FY27 Expenses</div>
+      <div class="mc-val">${fmt(fy27e)}</div>
+      <div class="mc-sub">Jul 26 – Jun 27</div>
     </div>
-
-    <!-- TAB: Income -->
-    <div id="tab-income" class="tab-content">
-      ${renderIncome(g)}
+    <div class="mc ${pct>=90?'red-top':pct>=75?'amber-top':''}">
+      <div class="mc-lbl">Total Spent</div>
+      <div class="mc-val ${pct>=90?'red':pct>=75?'amber':''}">${fmt(tot)}</div>
+      <div class="mc-sub">${fmtPct(pct)} of budget</div>
+      <div class="mc-bar"><div class="mc-fill" style="width:${Math.min(pct,100)}%;background:${barCol(pct)}"></div></div>
     </div>
-
-    <!-- TAB: GL Lines -->
-    <div id="tab-gl" class="tab-content">
-      ${renderGL(g)}
+    <div class="mc ${bal<0?'red-top':bal<bud*.1?'amber-top':'green-top'}">
+      <div class="mc-lbl">Remaining Budget</div>
+      <div class="mc-val ${bal<0?'red':bal<bud*.1?'amber':'green'}">${fmt(bal)}</div>
+      <div class="mc-sub">${fmtPct(100-pct)} unspent</div>
     </div>
-  `;
+    ${g.total_outstanding>0?`<div class="mc amber-top">
+      <div class="mc-lbl">Payments Outstanding</div>
+      <div class="mc-val amber">${fmt(g.total_outstanding)}</div>
+      <div class="mc-sub">Yet to be received</div>
+    </div>`:''}
+  </div>
 
-  // Attach GL filter events
-  const catSel  = document.getElementById('gl-cat-filter');
-  const fySel   = document.getElementById('gl-fy-filter');
-  const srchInp = document.getElementById('gl-search');
-  if (catSel)  catSel.oninput  = () => filterGL(g);
-  if (fySel)   fySel.oninput   = () => filterGL(g);
-  if (srchInp) srchInp.oninput = () => filterGL(g);
+  <div class="tabs">
+    <button class="tb active" onclick="switchTab('snap',this)">Snapshot</button>
+    <button class="tb" onclick="switchTab('payrep',this)">Payments &amp; Reporting</button>
+    <button class="tb" onclick="switchTab('agree',this)">Grant Details</button>
+    <button class="tb" onclick="switchTab('income',this)">Income</button>
+    <button class="tb" onclick="switchTab('gl',this)">GL Lines</button>
+  </div>
+
+  <div id="tab-snap"   class="tc active">${renderSnap(g)}</div>
+  <div id="tab-payrep" class="tc">${renderPayRep(g)}</div>
+  <div id="tab-agree"  class="tc">${renderAgree(g)}</div>
+  <div id="tab-income" class="tc">${renderIncome(g)}</div>
+  <div id="tab-gl"     class="tc">${renderGLShell(g)}</div>`;
+
+  attachGL(g);
 }
 
-// ── Tab: Snapshot ─────────────────────────────────────────────────────────────
-function renderSnapshot(g) {
-  const rows = (g.budget_categories||[]).map(b => {
-    const pct = b.pct_used || 0;
-    return `<tr>
-      <td><span class="${catClass(b.category)} cat-pill">${b.category}</span></td>
-      <td class="right">${fmt(b.budget)}</td>
-      <td class="right">${fmt(b.fy26_actual)}</td>
-      <td class="right">${fmt(b.fy27_actual)}</td>
-      <td class="right ${b.variance<0?'var-neg':'var-pos'}">${fmt(b.variance)}</td>
-      <td class="right">${fmtPct(pct)}</td>
-      <td style="width:90px">
-        <div class="mini-bar"><div class="mini-bar-fill"
-          style="width:${Math.min(pct,100)}%;background:${barColor(pct)}"></div></div>
-      </td>
+/* ── Snapshot ── */
+function renderSnap(g){
+  const cats=g.budget_categories||[];
+  const activeFYs=FYS.filter(fy=>cats.some(c=>(c.fy_actuals||{})[fy]>0));
+  const totBud=cats.reduce((s,c)=>s+c.budget,0);
+  const totAct=cats.reduce((s,c)=>s+c.total_actual,0);
+  const fyTots={};activeFYs.forEach(f=>{fyTots[f]=cats.reduce((s,c)=>s+((c.fy_actuals||{})[f]||0),0)});
+  const fyCols=activeFYs.map(f=>`<th class="r">${f}</th>`).join('');
+  const rows=cats.map(c=>{
+    const p=c.pct_used||0;
+    const fyCells=activeFYs.map(f=>`<td class="r">${(c.fy_actuals||{})[f]>0?fmt((c.fy_actuals||{})[f]):'—'}</td>`).join('');
+    return`<tr><td><span class="pill ${pillCat(c.category)}">${c.category}</span></td>
+      <td class="r">${fmt(c.budget)}</td>${fyCells}
+      <td class="r" style="font-weight:700">${fmt(c.total_actual)}</td>
+      <td class="r ${c.variance<0?'neg':'pos'}">${fmt(c.variance)}</td>
+      <td class="r">${fmtPct(p)}</td>
+      <td style="width:80px"><div class="mb"><div class="mb-fill" style="width:${Math.min(p,100)}%;background:${barCol(p)}"></div></div></td>
     </tr>`;
-  });
-
-  const totBud = (g.budget_categories||[]).reduce((s,b)=>s+b.budget,0);
-  const totFy26= (g.budget_categories||[]).reduce((s,b)=>s+b.fy26_actual,0);
-  const totFy27= (g.budget_categories||[]).reduce((s,b)=>s+b.fy27_actual,0);
-  const totAct = (g.budget_categories||[]).reduce((s,b)=>s+b.total_actual,0);
-  const totVar = totBud - totAct;
-
-  return `
-    <div class="card">
-      <div class="card-title">Summary by budget category</div>
-      <table class="bv-table">
-        <thead><tr>
-          <th>Category</th>
-          <th class="right">Budget</th>
-          <th class="right">FY26 Actual</th>
-          <th class="right">FY27 Actual</th>
-          <th class="right">Variance</th>
-          <th class="right">% Used</th>
-          <th></th>
-        </tr></thead>
-        <tbody>${rows.join('')}</tbody>
-        <tfoot><tr>
-          <td>Total</td>
-          <td class="right">${fmt(totBud)}</td>
-          <td class="right">${fmt(totFy26)}</td>
-          <td class="right">${fmt(totFy27)}</td>
-          <td class="right ${totVar<0?'var-neg':'var-pos'}">${fmt(totVar)}</td>
-          <td class="right">${fmtPct(totBud>0?totAct/totBud*100:0)}</td>
-          <td></td>
-        </tr></tfoot>
-      </table>
-    </div>`;
+  }).join('');
+  const fyFoot=activeFYs.map(f=>`<td class="r">${fmt(fyTots[f])}</td>`).join('');
+  return`<div class="card"><div class="card-title">Budget vs Actuals by Category</div>
+    <table><thead><tr><th>Category</th><th class="r">Budget</th>${fyCols}
+      <th class="r">Total Actual</th><th class="r">Variance</th><th class="r">% Used</th><th></th></tr></thead>
+    <tbody>${rows}</tbody>
+    <tr class="tfoot"><td>TOTAL</td><td class="r">${fmt(totBud)}</td>${fyFoot}
+      <td class="r">${fmt(totAct)}</td>
+      <td class="r ${totBud-totAct<0?'neg':'pos'}">${fmt(totBud-totAct)}</td>
+      <td class="r">${fmtPct(totBud>0?totAct/totBud*100:0)}</td><td></td></tr>
+    </table></div>`;
 }
 
-// ── Tab: Agreement ────────────────────────────────────────────────────────────
-function renderAgreement(g) {
-  return `
-    <div class="card">
-      <div class="card-title">Grant details</div>
-      <div class="info-grid">
-        <div class="info-row"><div class="info-label">Grant / Funder</div><div class="info-value">${g.name}</div></div>
-        <div class="info-row"><div class="info-label">Code</div><div class="info-value">${g.code}</div></div>
-        <div class="info-row"><div class="info-label">Legal Entity</div><div class="info-value">${g.entity}</div></div>
-        <div class="info-row"><div class="info-label">Entity Group</div><div class="info-value">${g.entity_group}</div></div>
-        <div class="info-row"><div class="info-label">Start Date</div><div class="info-value">${fmtDate(g.start_date)}</div></div>
-        <div class="info-row"><div class="info-label">End Date</div><div class="info-value">${fmtDate(g.end_date)}</div></div>
-        <div class="info-row"><div class="info-label">Total Award</div><div class="info-value">${fmt(g.budget_total)}</div></div>
-        <div class="info-row"><div class="info-label">Original Currency</div><div class="info-value">${g.orig_currency}</div></div>
-        <div class="info-row"><div class="info-label">Program Lead</div><div class="info-value">${g.lead || '—'}</div></div>
-        <div class="info-row"><div class="info-label">Lead Email</div><div class="info-value">${g.lead_email || '—'}</div></div>
-        <div class="info-row"><div class="info-label">Agreement Status</div><div class="info-value">${g.agreement_status || '—'}</div></div>
-        <div class="info-row"><div class="info-label">Grant Status</div>
-          <div class="info-value"><span class="status-badge status-${g.grant_status}">${g.grant_status}</span></div></div>
-        ${g.purpose ? `<div class="info-row" style="grid-column:1/-1">
-          <div class="info-label">Grant Purpose</div>
-          <div class="info-value">${g.purpose}</div></div>` : ''}
+/* ── Payments & Reporting ── */
+function renderPayRep(g){
+  const installs=g.payment_installments||[];
+  const reports=g.reporting_schedule||[];
+  let html='';
+
+  if(installs.length){
+    const total=installs.reduce((s,x)=>s+x.amount,0);
+    const outstanding=installs.reduce((s,x)=>s+x.outstanding,0);
+    const irows=installs.map(x=>{
+      const isNext=x.is_next;
+      const stCls=x.status.toLowerCase().includes('upcoming')||isNext?'p-Upcoming':
+                  x.outstanding===0?'p-Received':'';
+      return`<tr style="${isNext?'background:var(--amber-l);':''}">
+        <td style="font-weight:${isNext?'700':'400'}">${isNext?'<span class="pill p-next">NEXT</span> ':''} ${x.installment_no}</td>
+        <td class="r" style="font-weight:700">${fmt(x.amount)}</td>
+        <td>${x.due_date?fmtDate(x.due_date.length===10?x.due_date:null)||x.due_date:'—'}</td>
+        <td style="font-size:12px">${x.condition}</td>
+        <td><span class="pill ${stCls}">${x.status}</span></td>
+        <td class="r ${x.outstanding>0?'neg':''}">${x.outstanding>0?fmt(x.outstanding):'—'}</td>
+      </tr>`;
+    }).join('');
+    html+=`<div class="card">
+      <div class="card-title">Payment Installment Schedule
+        <span class="ct-r">Total: ${fmt(total)} · Outstanding: ${outstanding>0?fmt(outstanding):'Nil'}</span>
       </div>
-    </div>
-
-    ${g.rep_schedule ? `<div class="card">
-      <div class="card-title">Reporting schedule</div>
-      <div class="info-value" style="white-space:pre-line;line-height:1.6">${g.rep_schedule}</div>
-    </div>` : ''}
-
-    ${g.payment_schedule ? `<div class="card">
-      <div class="card-title">Payment schedule</div>
-      <div class="info-value" style="white-space:pre-line;line-height:1.6">${g.payment_schedule}</div>
-    </div>` : ''}`;
-}
-
-// ── Tab: Budget vs Actuals ────────────────────────────────────────────────────
-function renderBudget(g) {
-  return renderSnapshot(g);  // same table, could be expanded
-}
-
-// ── Tab: Income ───────────────────────────────────────────────────────────────
-function renderIncome(g) {
-  const lines = g.income_lines || [];
-  if (!lines.length) return `<div class="card"><div class="empty-state">No income recorded in GL</div></div>`;
-
-  const total = lines.reduce((s,l)=>s+l.amount,0);
-  const rows  = lines.map(l => `<tr>
-    <td>${fmtDate(l.date)}</td>
-    <td>${l.ac}</td>
-    <td>${l.memo}</td>
-    <td class="right" style="color:var(--green);font-weight:500">${fmt(l.amount)}</td>
-  </tr>`).join('');
-
-  return `<div class="card">
-    <div class="card-title">Income receipts (all dates · USD equivalent)</div>
-    <table class="inc-table">
-      <thead><tr><th>Date</th><th>Account</th><th>Description</th><th class="right">Amount</th></tr></thead>
-      <tbody>${rows}</tbody>
-      <tfoot><tr><td colspan="3">Total income received</td><td class="right">${fmt(total)}</td></tr></tfoot>
-    </table>
-  </div>`;
-}
-
-// ── Tab: GL Lines ─────────────────────────────────────────────────────────────
-function renderGL(g) {
-  const cats = [...new Set((g.gl_lines||[]).map(l=>l.category))].sort();
-  const catOpts = cats.map(c=>`<option value="${c}">${c}</option>`).join('');
-  return `
-    <div class="card">
-      <div class="card-title">Expense GL lines (from grant start date)</div>
-      <div class="gl-controls">
-        <select id="gl-fy-filter">
-          <option value="">All FY</option>
-          <option value="FY26">FY26</option>
-          <option value="FY27">FY27</option>
-          <option value="Other">Other</option>
-        </select>
-        <select id="gl-cat-filter">
-          <option value="">All categories</option>${catOpts}
-        </select>
-        <input id="gl-search" type="text" placeholder="Search memo / vendor..." style="flex:1;min-width:180px">
-        <span class="gl-count" id="gl-count"></span>
-      </div>
-      <div class="gl-wrap">
-        <table class="gl-table">
-          <thead><tr>
-            <th>Date</th><th>FY</th><th>Account</th>
-            <th>Category</th><th>Description</th>
-            <th class="right">Debit</th><th class="right">Credit</th><th class="right">Net</th>
-          </tr></thead>
-          <tbody id="gl-tbody"></tbody>
-        </table>
-      </div>
-    </div>`;
-}
-
-function filterGL(g) {
-  const fy  = (document.getElementById('gl-fy-filter')||{}).value  || '';
-  const cat = (document.getElementById('gl-cat-filter')||{}).value || '';
-  const srch= ((document.getElementById('gl-search')||{}).value||'').toLowerCase();
-
-  let lines = g.gl_lines || [];
-  if (fy)   lines = lines.filter(l => l.fy === fy);
-  if (cat)  lines = lines.filter(l => l.category === cat);
-  if (srch) lines = lines.filter(l =>
-    l.memo.toLowerCase().includes(srch) || l.vendor.toLowerCase().includes(srch) ||
-    l.employee.toLowerCase().includes(srch));
-
-  const tbody = document.getElementById('gl-tbody');
-  const count = document.getElementById('gl-count');
-  if (!tbody) return;
-
-  if (!lines.length) {
-    tbody.innerHTML = `<tr><td colspan="8" class="empty-state">No transactions match</td></tr>`;
-    if (count) count.textContent = '0 transactions';
-    return;
+      <table><thead><tr>
+        <th>No.</th><th class="r">Amount</th><th>Due Date</th>
+        <th>Condition</th><th>Status</th><th class="r">Outstanding</th>
+      </tr></thead><tbody>${irows}</tbody>
+      <tr class="tfoot"><td colspan="1">TOTAL</td><td class="r">${fmt(total)}</td>
+        <td colspan="3"></td><td class="r">${outstanding>0?fmt(outstanding):'—'}</td></tr>
+      </table></div>`;
+  } else {
+    html+=`<div class="card"><div class="card-title">Payment Schedule</div>
+      <div style="padding:16px;color:var(--muted);font-style:italic">${g.payment_schedule_text||'Payment schedule not yet recorded.'}</div></div>`;
   }
 
-  const total = lines.reduce((s,l)=>s+l.net,0);
-  tbody.innerHTML = lines.map(l => `<tr>
-    <td style="white-space:nowrap">${fmtDate(l.date)}</td>
-    <td><span class="fy-pill fy-${l.fy}">${l.fy}</span></td>
-    <td style="white-space:nowrap;font-size:11px">${l.ac}<br><span class="text-muted">${l.ac_name}</span></td>
-    <td><span class="${catClass(l.category)} cat-pill">${l.category}</span></td>
-    <td style="max-width:280px;font-size:12px">
-      ${l.memo ? l.memo.substring(0,100) : ''}
-      ${l.vendor ? `<div class="text-muted" style="font-size:11px">${l.vendor}</div>` : ''}
-    </td>
-    <td class="right">${l.debit ? fmt(l.debit) : '—'}</td>
-    <td class="right">${l.credit ? fmt(l.credit) : '—'}</td>
-    <td class="right" style="font-weight:500">${fmt(l.net)}</td>
-  </tr>`).join('') +
-  `<tr style="font-weight:600;background:var(--gray-light)">
-    <td colspan="7">Total (${lines.length} transactions)</td>
-    <td class="right">${fmt(total)}</td>
-  </tr>`;
-
-  if (count) count.textContent = `${lines.length} transaction${lines.length!==1?'s':''}`;
+  if(reports.length){
+    const rrows=reports.map(r=>{
+      const days=daysTo(r.due_date);const urgent=days!=null&&days<60;
+      return`<tr style="${urgent?'background:var(--amber-l);':''}">
+        <td style="font-weight:700">${urgent?'⚡ ':''}<span class="pill p-Upcoming">${r.report_type}</span></td>
+        <td style="font-size:12px">${r.period}</td>
+        <td style="${urgent?'color:var(--red);font-weight:700':'font-weight:600'}">
+          ${fmtDate(r.due_date)}${days!=null?` <span style="font-size:11px;color:var(--muted)">(${days}d)</span>`:''}
+        </td>
+        <td style="font-size:12px;color:var(--muted);max-width:200px">${r.requirements}</td>
+        <td style="font-weight:600">${r.lead}</td>
+      </tr>`;
+    }).join('');
+    html+=`<div class="card"><div class="card-title">Reporting Schedule</div>
+      <table><thead><tr><th>Report Type</th><th>Period</th><th>Due Date</th>
+        <th>Requirements</th><th>Lead</th></tr></thead>
+      <tbody>${rrows}</tbody></table></div>`;
+  } else {
+    html+=`<div class="card"><div class="card-title">Reporting Schedule</div>
+      <div style="padding:16px;color:var(--muted);font-style:italic">${g.rep_schedule_text||'Reporting schedule not yet recorded.'}</div></div>`;
+  }
+  return html;
 }
 
-// ── Tab switching ─────────────────────────────────────────────────────────────
-function switchTab(id, btn) {
-  document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
-  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-  document.getElementById('tab-' + id).classList.add('active');
+/* ── Grant details ── */
+function renderAgree(g){
+  return`<div class="card"><div class="card-title">Grant Details</div>
+    <div class="ig">
+      <div><div class="ig-lbl">Grant / Funder</div><div class="ig-val">${g.name}</div></div>
+      <div><div class="ig-lbl">Grant Code</div><div class="ig-val">${g.code}</div></div>
+      <div><div class="ig-lbl">Legal Entity</div><div class="ig-val" style="font-size:16px;color:var(--blue)">${g.entity}</div></div>
+      <div><div class="ig-lbl">Entity Group</div><div class="ig-val">${g.entity_group||g.entity}</div></div>
+      <div><div class="ig-lbl">Start Date</div><div class="ig-val">${fmtDate(g.start_date)}</div></div>
+      <div><div class="ig-lbl">End Date</div><div class="ig-val">${fmtDate(g.end_date)}</div></div>
+      <div><div class="ig-lbl">Total Award</div><div class="ig-val" style="font-size:16px;color:var(--gold-dk)">${fmt(g.budget_total)}</div></div>
+      <div><div class="ig-lbl">Original Currency</div><div class="ig-val">${g.orig_currency}</div></div>
+      <div><div class="ig-lbl">Program Lead</div><div class="ig-val">${g.lead||'—'}</div></div>
+      <div><div class="ig-lbl">Lead Email</div><div class="ig-val">${g.lead_email||'—'}</div></div>
+      <div><div class="ig-lbl">Agreement Status</div><div class="ig-val">${g.agreement_status||'—'}</div></div>
+      <div><div class="ig-lbl">Grant Status</div><div class="ig-val"><span class="badge ${g.grant_status}">${g.grant_status}</span></div></div>
+      ${g.next_key_date?`<div><div class="ig-lbl">Next Key Date</div><div class="ig-val" style="color:var(--amber);font-weight:700">${fmtDate(g.next_key_date)}</div></div>`:''}
+      ${g.next_report_due?`<div><div class="ig-lbl">Next Report Due</div><div class="ig-val" style="color:var(--amber)">${fmtDate(g.next_report_due)}</div></div>`:''}
+      ${g.source_status?`<div><div class="ig-lbl">Source Status</div><div class="ig-val">${g.source_status}</div></div>`:''}
+      ${g.purpose?`<div style="grid-column:1/-1"><div class="ig-lbl">Grant Purpose</div><div class="ig-val">${g.purpose}</div></div>`:''}
+    </div></div>
+  ${(g.needs_review||[]).length?`<div class="card" style="border:2px solid var(--gold-d)">
+    <div class="card-title" style="color:var(--amber)">⚠️ Items Needing Review</div>
+    ${g.needs_review.map(r=>`<div style="margin-bottom:10px">
+      <div style="font-weight:700;font-size:13px">${r.item}</div>
+      <div style="font-size:12px;color:var(--muted);margin-top:2px">${r.issue}</div>
+      <div style="font-size:12px;color:var(--blue);margin-top:2px;font-weight:600">→ ${r.action}</div>
+    </div>`).join('<hr style="border:none;border-top:1px solid var(--border);margin:8px 0">')}
+    </div>`:''}`;
+}
+
+/* ── Income ── */
+function renderIncome(g){
+  const ls=g.income_lines||[];
+  if(!ls.length)return`<div class="card"><div style="text-align:center;padding:32px;color:var(--muted)">No income recorded in GL</div></div>`;
+  const tot=ls.reduce((s,l)=>s+l.amount,0);
+  const rows=ls.map(l=>`<tr><td style="white-space:nowrap">${fmtDate(l.date)}</td>
+    <td>${l.ac}</td><td>${l.memo}</td>
+    <td class="r" style="color:var(--green);font-weight:700">${fmt(l.amount)}</td></tr>`).join('');
+  return`<div class="card"><div class="card-title">Income Receipts — All Dates · USD Equivalent</div>
+    <table><thead><tr><th>Date</th><th>Account</th><th>Description</th><th class="r">Amount</th></tr></thead>
+    <tbody>${rows}</tbody>
+    <tr class="tfoot"><td colspan="3">TOTAL INCOME RECEIVED</td><td class="r">${fmt(tot)}</td></tr></table></div>`;
+}
+
+/* ── GL Lines ── */
+function renderGLShell(g){
+  const cats=[...new Set((g.gl_lines||[]).map(l=>l.category))].sort();
+  const fys=[...new Set((g.gl_lines||[]).map(l=>l.fy))].sort();
+  return`<div class="card"><div class="card-title">Expense GL Lines — From Grant Start Date</div>
+    <div class="gl-ctrl">
+      <select id="gl-fy"><option value="">All FY</option>${fys.map(f=>`<option>${f}</option>`).join('')}</select>
+      <select id="gl-cat"><option value="">All categories</option>${cats.map(c=>`<option>${c}</option>`).join('')}</select>
+      <input id="gl-srch" type="text" placeholder="Search memo / vendor…" style="flex:1;min-width:160px">
+      <span id="gl-cnt" style="font-size:12px;color:var(--muted);white-space:nowrap"></span>
+    </div>
+    <div class="ow"><table>
+      <thead><tr><th>Date</th><th>FY</th><th>Account</th><th>Category</th><th>Description</th>
+        <th class="r">Debit</th><th class="r">Credit</th><th class="r">Net</th></tr></thead>
+      <tbody id="gl-body"></tbody></table></div></div>`;
+}
+
+function attachGL(g){
+  ['gl-fy','gl-cat','gl-srch'].forEach(id=>{const el=document.getElementById(id);if(el)el.oninput=()=>filterGL(g)});
+  filterGL(g);
+}
+function filterGL(g){
+  const fy=(document.getElementById('gl-fy')||{}).value||'';
+  const cat=(document.getElementById('gl-cat')||{}).value||'';
+  const q=((document.getElementById('gl-srch')||{}).value||'').toLowerCase();
+  let ls=g.gl_lines||[];
+  if(fy)ls=ls.filter(l=>l.fy===fy);
+  if(cat)ls=ls.filter(l=>l.category===cat);
+  if(q)ls=ls.filter(l=>l.memo.toLowerCase().includes(q)||l.vendor.toLowerCase().includes(q)||l.employee.toLowerCase().includes(q));
+  const body=document.getElementById('gl-body'),cnt=document.getElementById('gl-cnt');
+  if(!body)return;
+  const tot=ls.reduce((s,l)=>s+l.net,0);
+  body.innerHTML=ls.map(l=>`<tr>
+    <td style="white-space:nowrap;font-size:12px">${fmtDate(l.date)}</td>
+    <td><span class="pill ${pillFY(l.fy)}">${l.fy}</span></td>
+    <td style="font-size:11px;white-space:nowrap">${l.ac}<br><span style="color:var(--muted)">${l.ac_name}</span></td>
+    <td><span class="pill ${pillCat(l.category)}">${l.category}</span></td>
+    <td style="max-width:260px;font-size:12px">${l.memo.substring(0,100)}${l.vendor?`<div style="color:var(--muted);font-size:11px">${l.vendor}</div>`:''}</td>
+    <td class="r">${l.debit?fmt(l.debit):'—'}</td>
+    <td class="r">${l.credit?fmt(l.credit):'—'}</td>
+    <td class="r" style="font-weight:700">${fmt(l.net)}</td>
+  </tr>`).join('')+
+  (ls.length?`<tr class="tfoot"><td colspan="7">${ls.length} TRANSACTIONS</td><td class="r">${fmt(tot)}</td></tr>`:
+    '<tr><td colspan="8" style="text-align:center;padding:24px;color:var(--muted)">No results</td></tr>');
+  if(cnt)cnt.textContent=`${ls.length} transaction${ls.length!==1?'s':''}`;
+}
+
+/* ── Portfolio summary ── */
+function renderSummary(){
+  const activeFYs=FYS.filter(fy=>DATA.some(g=>(g.fy_expenses||{})[fy]>0));
+  const fyHdrs=activeFYs.map(f=>`<th class="r">${f}</th>`).join('');
+  const tots={inc:0,exp:0,bud:0,out:0};const fyTots={};activeFYs.forEach(f=>fyTots[f]=0);
+  const rows=DATA.map(g=>{
+    const inc=g.total_income||0,exp=g.total_expenses||0,bud=g.budget_total||0;
+    const pct=g.pct_used||0,bal=g.balance||0,out=g.total_outstanding||0;
+    tots.inc+=inc;tots.exp+=exp;tots.bud+=bud;tots.out+=out;
+    const fyCells=activeFYs.map(f=>{const v=(g.fy_expenses||{})[f]||0;fyTots[f]+=v;return`<td class="r">${v>0?fmt(v):'—'}</td>`;}).join('');
+    return`<tr onclick="selectGrant('${g.code}')" style="cursor:pointer">
+      <td style="white-space:nowrap"><strong>${g.code}</strong></td>
+      <td style="font-family:'League Gothic',sans-serif;font-size:15px;color:var(--blue)">${g.entity||g.entity_group}</td>
+      <td>${g.name}</td>
+      <td><span class="badge ${g.grant_status}">${g.grant_status}</span></td>
+      <td class="r" style="color:var(--green);font-weight:700">${inc>0?fmt(inc):'—'}</td>
+      ${fyCells}
+      <td class="r" style="font-weight:700">${fmt(exp)}</td>
+      <td class="r">${fmt(bud)}</td>
+      <td class="r" style="${pct>=90?'color:var(--red);font-weight:700':pct>=75?'color:var(--amber);font-weight:700':''}">${fmtPct(pct)}</td>
+      <td class="r ${bal<0?'neg':''}">${fmt(bal)}</td>
+      <td class="r ${out>0?'neg':'pos'}">${out>0?fmt(out):'—'}</td>
+      <td style="white-space:nowrap;font-size:12px">${g.next_report_due?fmtDate(g.next_report_due):'—'}</td>
+      <td><div class="mb" style="min-width:70px"><div class="mb-fill" style="width:${Math.min(pct,100)}%;background:${barCol(pct)}"></div></div></td>
+    </tr>`;
+  }).join('');
+  const fyFoot=activeFYs.map(f=>`<td class="r">${fmt(fyTots[f])}</td>`).join('');
+  const totPct=tots.bud>0?tots.exp/tots.bud*100:0;
+  document.getElementById('main').innerHTML=`<div class="card">
+    <div class="card-title">Portfolio Summary — ${DATA.length} Grants · Click Any Row to Drill In</div>
+    <div class="ow"><table>
+      <thead><tr><th>Code</th><th>Entity</th><th>Grant</th><th>Status</th>
+        <th class="r">Income</th>${fyHdrs}
+        <th class="r">Total Exp</th><th class="r">Budget</th><th class="r">% Spent</th>
+        <th class="r">Remaining</th><th class="r">Outstanding</th><th>Next Report</th><th></th></tr></thead>
+      <tbody>${rows}</tbody>
+      <tr class="tfoot"><td colspan="4">TOTAL (${DATA.length} GRANTS)</td>
+        <td class="r">${fmt(tots.inc)}</td>${fyFoot}
+        <td class="r">${fmt(tots.exp)}</td><td class="r">${fmt(tots.bud)}</td>
+        <td class="r">${fmtPct(totPct)}</td>
+        <td class="r">${fmt(tots.bud-tots.exp)}</td>
+        <td class="r">${tots.out>0?fmt(tots.out):'—'}</td><td></td><td></td>
+      </tr></table></div></div>`;
+}
+
+/* ── Deadlines ── */
+function renderDeadlines(){
+  const events=[];
+  DATA.forEach(g=>{
+    (g.reporting_schedule||[]).forEach(r=>{
+      if(!r.due_date)return;
+      const days=daysTo(r.due_date);
+      events.push({type:'report',code:g.code,grant:g.name,entity:g.entity,
+        lead:r.lead||g.lead,desc:r.report_type,period:r.period,
+        due:r.due_date,days,status:r.status});
+    });
+    (g.payment_installments||[]).forEach(x=>{
+      if(!x.due_date||x.outstanding<=0)return;
+      const days=daysTo(x.due_date.length===10?x.due_date:null);
+      events.push({type:'payment',code:g.code,grant:g.name,entity:g.entity,
+        lead:g.lead,desc:`Installment ${x.installment_no} — ${fmt(x.amount)}`,
+        period:x.condition,due:x.due_date,days,status:x.status,outstanding:x.outstanding});
+    });
+  });
+  events.sort((a,b)=>{if(a.days==null&&b.days==null)return 0;if(a.days==null)return 1;if(b.days==null)return -1;return a.days-b.days;});
+  const rows=events.map(e=>{
+    const icon=e.type==='report'?'📋':'💰';
+    const bg=e.days!=null&&e.days<30?'background:var(--red-l)':e.days!=null&&e.days<60?'background:var(--amber-l)':'';
+    const dStr=e.days==null?'Date TBC':e.days<0?`${Math.abs(e.days)}d overdue`:e.days===0?'Today':`${e.days}d`;
+    const dCol=e.days==null?'':e.days<0?'color:var(--red);font-weight:700':e.days<30?'color:var(--red);font-weight:700':e.days<60?'color:var(--amber);font-weight:700':'';
+    return`<tr onclick="selectGrant('${e.code}')" style="cursor:pointer;${bg}">
+      <td>${icon}</td>
+      <td><strong>${e.code}</strong></td>
+      <td style="font-family:'League Gothic',sans-serif;font-size:15px;color:var(--blue)">${e.entity}</td>
+      <td>${e.grant}</td>
+      <td style="font-weight:600">${e.desc}</td>
+      <td style="font-size:12px;color:var(--muted)">${e.period}</td>
+      <td style="white-space:nowrap;font-weight:600">${fmtDate(e.due.length===10?e.due:null)||e.due}</td>
+      <td style="white-space:nowrap;${dCol}">${dStr}</td>
+      <td>${e.lead||'—'}</td>
+      <td><span class="pill p-Upcoming">${e.status}</span></td>
+    </tr>`;
+  }).join('');
+  document.getElementById('main').innerHTML=`<div class="card">
+    <div class="card-title">All Upcoming Deadlines — Reports &amp; Payments · Click Any Row to Drill In</div>
+    <div class="ow"><table>
+      <thead><tr><th></th><th>Code</th><th>Entity</th><th>Grant</th>
+        <th>Description</th><th>Period</th><th>Due Date</th><th>Days</th>
+        <th>Lead</th><th>Status</th></tr></thead>
+      <tbody>${rows||'<tr><td colspan="10" style="text-align:center;padding:24px;color:var(--muted)">No upcoming deadlines recorded</td></tr>'}</tbody>
+    </table></div></div>`;
+}
+
+function switchTab(id,btn){
+  document.querySelectorAll('.tc').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.tb').forEach(b=>b.classList.remove('active'));
+  document.getElementById('tab-'+id).classList.add('active');
   btn.classList.add('active');
-  if (id === 'gl' && CURRENT_GRANT) filterGL(CURRENT_GRANT);
+  if(id==='gl'&&CURRENT)filterGL(CURRENT);
 }
 
-// ── Init ──────────────────────────────────────────────────────────────────────
 loadData();
 </script>
 </body>
