@@ -45,6 +45,56 @@
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:'Open Sans',sans-serif;font-size:14px;color:var(--text);background:var(--tan);line-height:1.5}
 
+/* ── Password screen ── */
+#pw-screen{
+  position:fixed;inset:0;z-index:9999;
+  background:var(--navy);
+  display:flex;align-items:center;justify-content:center;flex-direction:column;gap:0;
+}
+.pw-box{
+  background:var(--white);border-radius:10px;
+  padding:40px 44px;width:380px;max-width:92vw;
+  box-shadow:0 8px 32px rgba(0,0,0,.35);text-align:center;
+}
+.pw-logo{
+  width:56px;height:56px;background:var(--gold);border-radius:8px;
+  display:flex;align-items:center;justify-content:center;
+  font-family:'League Gothic',sans-serif;font-size:26px;color:var(--navy);
+  margin:0 auto 16px;letter-spacing:-.5px;
+}
+.pw-title{
+  font-family:'League Gothic',sans-serif;font-size:26px;
+  color:var(--navy);letter-spacing:1px;margin-bottom:4px;
+}
+.pw-sub{font-size:13px;color:var(--muted);margin-bottom:28px}
+.pw-input{
+  width:100%;padding:11px 14px;border:2px solid var(--border);
+  border-radius:6px;font-size:15px;font-family:'Open Sans',sans-serif;
+  color:var(--text);outline:none;text-align:center;letter-spacing:3px;
+  transition:border-color .2s;
+}
+.pw-input:focus{border-color:var(--blue)}
+.pw-input.shake{animation:shake .4s ease}
+.pw-btn{
+  width:100%;margin-top:14px;padding:12px;
+  background:var(--blue);color:var(--white);
+  border:none;border-radius:6px;font-size:15px;font-weight:700;
+  font-family:'Open Sans',sans-serif;cursor:pointer;transition:background .15s;
+}
+.pw-btn:hover{background:var(--navy)}
+.pw-error{
+  font-size:12px;color:var(--red);margin-top:10px;
+  min-height:18px;font-weight:600;
+}
+.pw-footer{font-size:11px;color:rgba(255,255,255,.35);margin-top:24px}
+@keyframes shake{
+  0%,100%{transform:translateX(0)}
+  20%{transform:translateX(-8px)}
+  40%{transform:translateX(8px)}
+  60%{transform:translateX(-5px)}
+  80%{transform:translateX(5px)}
+}
+
 /* ── Header ── */
 .hdr{
   background:var(--navy);color:var(--white);
@@ -253,6 +303,22 @@ tbody tr:hover td{background:var(--blue-l)}
 </head>
 <body>
 
+<!-- ── Password screen ── -->
+<div id="pw-screen">
+  <div class="pw-box">
+    <div class="pw-logo">EM</div>
+    <div class="pw-title">EMPOWER GRANT DASHBOARD</div>
+    <div class="pw-sub">Finance · Restricted Fund Intelligence<br>Enter your access password to continue</div>
+    <input class="pw-input" id="pw-input" type="password"
+           placeholder="••••••••" maxlength="30"
+           onkeydown="if(event.key==='Enter')checkPw()">
+    <button class="pw-btn" onclick="checkPw()">Access Dashboard</button>
+    <div class="pw-error" id="pw-error"></div>
+  </div>
+  <div class="pw-footer">EMpower — The Emerging Markets Foundation · Restricted access</div>
+</div>
+
+<div id="app" style="display:none">
 <div class="hdr">
   <div class="hdr-l">
     <div class="logo">EM</div>
@@ -744,7 +810,43 @@ function switchTab(id,btn){
   if(id==='gl'&&CURRENT)filterGL(CURRENT);
 }
 
-loadData();
+// ── Password gate ────────────────────────────────────────────────────────────
+// To change the password: update the value below (use something memorable
+// but not your Sage or email password — this is a shared dashboard password)
+const DASHBOARD_PASSWORD = 'EMpower2026!';
+const SESSION_KEY = 'em_grant_auth';
+
+function checkPw(){
+  const input = document.getElementById('pw-input');
+  const error = document.getElementById('pw-error');
+  const val   = input.value.trim();
+
+  if(val === DASHBOARD_PASSWORD){
+    // Store auth in sessionStorage — expires when browser tab closes
+    sessionStorage.setItem(SESSION_KEY, 'ok');
+    document.getElementById('pw-screen').style.display = 'none';
+    document.getElementById('app').style.display = 'block';
+    loadData();
+  } else {
+    error.textContent = 'Incorrect password. Please try again.';
+    input.value = '';
+    input.classList.add('shake');
+    input.focus();
+    setTimeout(()=>input.classList.remove('shake'), 400);
+  }
+}
+
+// Auto-unlock if already authenticated this session
+(function(){
+  if(sessionStorage.getItem(SESSION_KEY)==='ok'){
+    document.getElementById('pw-screen').style.display='none';
+    document.getElementById('app').style.display='block';
+    loadData();
+  } else {
+    document.getElementById('pw-input').focus();
+  }
+})();
 </script>
+</div><!-- /app -->
 </body>
 </html>
